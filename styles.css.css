@@ -1,0 +1,345 @@
+ :root {
+                /* ========= COLORS ========= */
+    /* Primary Neutrals */
+    --color-primary-dark: #3b2a1f;
+    --color-primary-mid: #5a4230;
+    --color-primary-light: #7a5c3a;
+
+    --color-secondary-dark: #c6a875;
+    --color-secondary-light: #d8c3a5;
+
+    --color-cream: #f6f1e8;
+    --color-white: #ffffff;
+
+    /* Accent */
+    --color-accent: #5fb69d;
+    --color-accent-dark: #4da88f;
+
+    /* Footer */
+    --color-footer: #2b1d14;
+
+    /* Shadows */
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    /* ========= TYPOGRAPHY ========= */
+
+    --body-font: "Ubuntu", sans-serif;
+    --heading-font: "Ubuntu", sans-serif;
+
+    --font-size-hero: 3rem;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-body: 1rem;
+    --font-size-small: 0.875rem;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    --line-height-base: 1.6;
+
+    /* ========= SPACING ========= */
+
+    --section-padding: 80px;
+    --section-padding-small: 60px;
+
+    --container-width: 1200px;
+    --container-padding: 1.5rem;
+
+    --gap-large: 3rem;
+    --gap-medium: 2rem;
+    --gap-small: 1rem;
+
+    /* ========= BORDER RADIUS ========= */
+
+    --radius-large: 24px;
+    --radius-medium: 16px;
+    --radius-small: 8px;
+
+    /* ========= TRANSITIONS ========= */
+
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+        }
+
+        html,body {
+            width: 100%;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        main {
+        width: 100%;
+        margin: var(--spacing-xl) 0 0 0;
+        }
+
+        body {
+        font-family: var(--body-font);
+        color: var(--color-primary-dark);
+        margin: 0;
+        /* box-sizing: border-box; */
+        padding: var(--section-padding-small) 0 0 0;
+        background-color: var(--color-cream);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-primary-dark);
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.65);
+            box-shadow: 0 2px 4px var(--color-primary-mid) 0.3;
+            border-radius: var(--radius-large);
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-size: var(--font-size-body);
+        }
+
+        .nav-link {
+            color: var(--dark-brown)t;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-cream);
+        }
+
+        .btn-volunteer {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+        }
+
+        .btn-volunteer:hover {
+            background-color: #4A9A87;
+            color: white;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) url(/Wildlife_Sanctuary_files/)
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .what-we-do {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+
+        .conservation-card {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+
+        .conservation-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .conservation-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .conservation-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .conservation-card ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+        }
+
+        .stats-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .stat-card {
+            background-color: #F5E6D3;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark-brown);
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .why-matters {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1920x400/8B6F47/FFFFFF?text=Wildlife+Ecosystem');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .why-matters h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .volunteer-section {
+            background-color: var(--primary-color);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .volunteer-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .volunteer-section p {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .volunteer-card {
+            background-color: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .volunteer-card h4 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .stories-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+
+        .story-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .story-author {
+            font-weight: bold;
+            font-style: normal;
+            margin-top: 15px;
+            color: var(--secondary-color);
+        }
+
+        .footer {
+            background-color: var(--dark-brown);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer h5 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .subscribe-form input {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .subscribe-form input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .btn-subscribe {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
