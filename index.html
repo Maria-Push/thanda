@@ -1,42 +1,50 @@
 <!DOCTYPE html>
-<!-- saved from url=(0031)https://jasonschade.com/masha1/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thanda Wildlife Sanctuary - Protecting Wildlife Through Care and Compassion</title>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link href="./thanda/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./thanda/bootstrap-icons.css">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand" href="https://jasonschade.com/masha1/#">THANDA</a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false">
+            <a class="navbar-brand" href="#hero">
+                <img src="logo.png" alt="Thanda Wildlife Sanctuary" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" id="navToggle">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse justify-content-end collapse" id="navbarNav">
-                <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="https://jasonschade.com/masha1/#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://jasonschade.com/masha1/#what-we-do">What We Do</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://jasonschade.com/masha1/#volunteer">Volunteer</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://jasonschade.com/masha1/#impact">Impact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://jasonschade.com/masha1/#contact">Contact</a></li>
+            <div class="navbar-menu" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#what-we-do">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#volunteer">Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section id="hero" class="hero-section">
         <div class="container">
-            <h1>Protecting Wildlife<br>Through Care and<br>Compassion</h1>
-            <p>Join our volunteer program and help protect endangered species.</p>
-            <button class="btn btn-volunteer btn-lg">Join Us</button>
-            <p class="mt-4"><small>ETHICAL, HANDS-ON CONSERVATION WORK</small></p>
+            <div class="hero-content">
+                <h1 class="hero-title">Protecting Wildlife<br>Through Care and<br>Compassion</h1>
+                <p class="hero-subtitle">Join our volunteer program and help protect endangered species.</p>
+                <button class="btn btn-primary">Join Us</button>
+                <p class="hero-badge">ETHICAL, HANDS-ON CONSERVATION WORK</p>
+            </div>
         </div>
     </section>
 
@@ -44,76 +52,46 @@
     <section id="what-we-do" class="what-we-do">
         <div class="container">
             <h2 class="section-title">What We Do</h2>
-            <p class="text-center mb-5">THE CORE OF OUR CONSERVATION WORK</p>
+            <p class="section-subtitle">THE CORE OF OUR CONSERVATION WORK</p>
             
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="conservation-card">
-                        <i class="bi bi-heart-pulse" style="font-size: 3rem;"></i>
-                        <h3>Rescue</h3>
-                        <p>Care for vulnerable wildlife</p>
-                        <ul>
-                            <li>Emergency rescue &amp; medical care</li>
-                            <li>Ethical rehabilitation</li>
-                            <li>Long-term animal protection</li>
-                        </ul>
+            <div class="cards-grid">
+                <div class="conservation-card">
+                    <div class="card-icon">
+                        <i class="bi bi-heart-pulse"></i>
                     </div>
+                    <h3 class="card-title">Rescue</h3>
+                    <p class="card-description">Care for vulnerable wildlife</p>
+                    <ul class="card-list">
+                        <li>Emergency rescue & medical care</li>
+                        <li>Ethical rehabilitation</li>
+                        <li>Long-term animal protection</li>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <div class="conservation-card">
-                        <i class="bi bi-tree" style="font-size: 3rem;"></i>
-                        <h3>Conservation</h3>
-                        <p>Protecting natural ecosystems</p>
-                        <ul>
-                            <li>Habitat preservation</li>
-                            <li>Ecosystem monitoring</li>
-                            <li>Sustainable conservation practices</li>
-                        </ul>
+                
+                <div class="conservation-card conservation-card-center">
+                    <div class="card-icon">
+                        <i class="bi bi-tree"></i>
                     </div>
+                    <h3 class="card-title">Conservation</h3>
+                    <p class="card-description">Protecting natural ecosystems</p>
+                    <ul class="card-list">
+                        <li>Habitat preservation</li>
+                        <li>Ecosystem monitoring</li>
+                        <li>Sustainable conservation practices</li>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <div class="conservation-card">
-                        <i class="bi bi-book" style="font-size: 3rem;"></i>
-                        <h3>Research</h3>
-                        <p>Knowledge-driven conservation</p>
-                        <ul>
-                            <li>Wildlife research</li>
-                            <li>Community education</li>
-                            <li>Expert collaboration</li>
-                        </ul>
+                
+                <div class="conservation-card">
+                    <div class="card-icon">
+                        <i class="bi bi-book"></i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section id="impact" class="stats-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-text">Animals rescued and rehabilitated each year</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-text">Species protected through conservation programs</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-text">Years of active wildlife preservation</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">1.2k+</div>
-                        <div class="stat-text">Global volunteers and partners supporting local impact</div>
-                    </div>
+                    <h3 class="card-title">Research</h3>
+                    <p class="card-description">Knowledge-driven conservation</p>
+                    <ul class="card-list">
+                        <li>Wildlife research</li>
+                        <li>Community education</li>
+                        <li>Expert collaboration</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -122,46 +100,72 @@
     <!-- Why It Matters Section -->
     <section class="why-matters">
         <div class="container">
-            <h2>Why It Matters</h2>
-            <p class="lead">Protecting wildlife means protecting fragile ecosystems — and the future they support.</p>
+            <div class="why-matters-content">
+                <h2 class="why-matters-title">Why It Matters</h2>
+                <p class="why-matters-text">Protecting wildlife means protecting fragile ecosystems — and the future they support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="impact" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-text">Animals rescued and rehabilitated each year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-text">Species protected through conservation programs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-text">Years of active wildlife preservation</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1.2k+</div>
+                    <div class="stat-text">Global volunteers and partners supporting local impact</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Volunteer Section -->
     <section id="volunteer" class="volunteer-section">
         <div class="container">
-            <h2>Volunteer With Us</h2>
-            <p>Become part of meaningful conservation work in the African savanna.</p>
-            <p>Support wildlife rescue, contribute to conservation efforts, and gain hands-on experience in ethical animal care. Our volunteer programs are designed for individuals who want to make a real difference.</p>
-            <p class="text-center mb-5"><strong>NO PRIOR EXPERIENCE REQUIRED</strong></p>
+            <h2 class="section-title">Volunteer With Us</h2>
+            <p class="volunteer-intro">Become part of meaningful conservation work in the African savanna.</p>
+            <p class="volunteer-description">Support wildlife rescue, contribute to conservation efforts, and gain hands-on experience in ethical animal care. Our volunteer programs are designed for individuals who want to make a real difference.</p>
+            <p class="volunteer-badge">NO PRIOR EXPERIENCE REQUIRED</p>
             
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="volunteer-card">
-                        <i class="bi bi-hand-thumbs-up" style="font-size: 3rem;"></i>
-                        <h4>Hands-on Experience</h4>
-                        <p>Assist with daily animal care and habitat maintenance.</p>
+            <div class="volunteer-grid">
+                <div class="volunteer-card">
+                    <div class="card-icon">
+                        <i class="bi bi-hand-thumbs-up"></i>
                     </div>
+                    <h4 class="card-title">Hands-on Experience</h4>
+                    <p class="card-description">Assist with daily animal care and habitat maintenance.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="volunteer-card">
-                        <i class="bi bi-calendar-check" style="font-size: 3rem;"></i>
-                        <h4>Structured Programs</h4>
-                        <p>Clear schedules, guidance, and on-site support.</p>
+                <div class="volunteer-card">
+                    <div class="card-icon">
+                        <i class="bi bi-calendar-check"></i>
                     </div>
+                    <h4 class="card-title">Structured Programs</h4>
+                    <p class="card-description">Clear schedules, guidance, and on-site support.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="volunteer-card">
-                        <i class="bi bi-people" style="font-size: 3rem;"></i>
-                        <h4>Global Community</h4>
-                        <p>Work alongside volunteers from around the world.</p>
+                <div class="volunteer-card">
+                    <div class="card-icon">
+                        <i class="bi bi-people"></i>
                     </div>
+                    <h4 class="card-title">Global Community</h4>
+                    <p class="card-description">Work alongside volunteers from around the world.</p>
                 </div>
             </div>
             
-            <div class="text-center mt-5">
-                <button class="btn btn-light btn-lg me-3">Learn More About Our Programs →</button>
-                <button class="btn btn-dark btn-lg">Apply Now</button>
+            <div class="volunteer-actions">
+                <button class="btn btn-secondary">Learn More About Our Programs →</button>
+                <button class="btn btn-dark">Apply Now</button>
             </div>
         </div>
     </section>
@@ -170,26 +174,29 @@
     <section class="stories-section">
         <div class="container">
             <h2 class="section-title">Stories from the Field</h2>
-            <p class="text-center mb-5">Experiences shared by volunteers and conservation partners.</p>
+            <p class="section-subtitle">Experiences shared by volunteers and conservation partners.</p>
             
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="story-card">
-                        <p>"Working with rescued wildlife changed my perspective on conservation. The experience was structured, ethical, and deeply meaningful."</p>
-                        <p class="story-author">— Anna M., Volunteer (Germany)</p>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="quote-icon">
+                        <i class="bi bi-quote"></i>
                     </div>
+                    <p class="story-text">"Working with rescued wildlife changed my perspective on conservation. The experience was structured, ethical, and deeply meaningful."</p>
+                    <p class="story-author">— Anna M., Volunteer (Germany)</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="story-card">
-                        <p>"The sanctuary prioritizes animal well-being above everything. As a biology student, I appreciated the research-based approach."</p>
-                        <p class="story-author">— David K., Research Intern (UK)</p>
+                <div class="story-card">
+                    <div class="quote-icon">
+                        <i class="bi bi-quote"></i>
                     </div>
+                    <p class="story-text">"The sanctuary prioritizes animal well-being above everything. As a biology student, I appreciated the research-based approach."</p>
+                    <p class="story-author">— David K., Research Intern (UK)</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="story-card">
-                        <p>"Beyond volunteering, I learned about sustainable coexistence and the importance of protecting natural habitats."</p>
-                        <p class="story-author">— Sofia R., Volunteer (Spain)</p>
+                <div class="story-card">
+                    <div class="quote-icon">
+                        <i class="bi bi-quote"></i>
                     </div>
+                    <p class="story-text">"Beyond volunteering, I learned about sustainable coexistence and the importance of protecting natural habitats."</p>
+                    <p class="story-author">— Sofia R., Volunteer (Spain)</p>
                 </div>
             </div>
         </div>
@@ -198,50 +205,51 @@
     <!-- Footer -->
     <footer id="contact" class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>THANDA</h5>
-                    <h6>Explore</h6>
-                    <ul>
-                        <li><a href="https://jasonschade.com/masha1/#">Home</a></li>
-                        <li><a href="https://jasonschade.com/masha1/#what-we-do">What We Do</a></li>
-                        <li><a href="https://jasonschade.com/masha1/#impact">Impact</a></li>
-                        <li><a href="https://jasonschade.com/masha1/#volunteer">Volunteer</a></li>
-                        <li><a href="https://jasonschade.com/masha1/#stories">Stories</a></li>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h5 class="footer-heading">Explore</h5>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#what-we-do">What We Do</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#volunteer">Volunteer</a></li>
+                        <li><a href="#stories">Stories</a></li>
                     </ul>
                 </div>
-                <div class="col-md-5">
-                    <h5>Stay Connected</h5>
-                    <p>Receive updates about our conservation work or reach out with any questions.</p>
-                    <div class="subscribe-form">
-                        <input type="text" placeholder="First Name">
-                        <input type="email" placeholder="Enter your email address...">
-                        <button class="btn btn-subscribe">Subscribe</button>
-                        <p class="small mt-2">*We respect your privacy and never share your information.</p>
-                    </div>
+                
+                <div class="footer-column footer-column-wide">
+                    <h5 class="footer-heading">Stay Connected</h5>
+                    <p class="footer-text">Receive updates about our conservation work or reach out with any questions.</p>
+                    <form class="subscribe-form">
+                        <input type="text" placeholder="First Name" class="form-input">
+                        <input type="email" placeholder="Enter your email address..." class="form-input">
+                        <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                    </form>
+                    <p class="form-note">*We respect your privacy and never share your information.</p>
                 </div>
-                <div class="col-md-4">
-                    <h5>Contact</h5>
-                    <p><strong>Thanda Wildlife Sanctuary</strong><br>
-                    Eastern Savanna Region<br>
-                    South Africa</p>
-                    <p><i class="bi bi-telephone"></i> +27 21 000 0000<br>
-                    <i class="bi bi-envelope"></i> info@thandasanct.org</p>
-                    <div class="social-icons">
-                        <a href="https://jasonschade.com/masha1/#"><i class="bi bi-facebook"></i></a>
-                        <a href="https://jasonschade.com/masha1/#"><i class="bi bi-instagram"></i></a>
+                
+                <div class="footer-column">
+                    <h5 class="footer-heading">Contact</h5>
+                    <div class="contact-info">
+                        <p><strong>Thanda Wildlife Sanctuary</strong></p>
+                        <p>Eastern Savanna Region<br>South Africa</p>
+                        <p><i class="bi bi-telephone"></i> +27 21 000 0000</p>
+                        <p><i class="bi bi-envelope"></i> info@thandasanct.org</p>
                     </div>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                    <img src="logo.png" alt="Thanda Logo" class="footer-logo">
                 </div>
             </div>
-            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p class="small">© 2026. All Rights Reserved | <a href="https://jasonschade.com/masha1/#">Privacy Policy</a> | <a href="https://jasonschade.com/masha1/#">Terms &amp; Conditions</a></p>
-                </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026. All Rights Reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
             </div>
         </div>
     </footer>
-    </body>
 
-    <script src="./Wildlife_Sanctuary_files/bootstrap.bundle.min.js.завантаження"></script>
+    <script src="script.js"></script>
+</body>
 </html>
