@@ -218,7 +218,7 @@ button {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 3rem);
-    max-width: 1100px;
+    max-width: 90vw;
     background-color: rgba(246, 241, 232, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 50px;
@@ -238,6 +238,7 @@ button {
 
 .navbar-brand {
     display: flex;
+    flex: 0 0 35px;
     align-items: center;
 }
 
@@ -336,7 +337,7 @@ button {
 .hero-section .container {
     max-width: none;
     margin: 0;
-    padding-left: 5%; /*of vw width, adjusts to screen size*/
+    padding-left: 10%; /*of vw width, adjusts to screen size*/
 }
 
 .hero-content {
@@ -370,7 +371,8 @@ button {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    line-height: var(--line-height-relaxed);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
     margin-bottom: var(--spacing-xl);
 }
 
