@@ -31,7 +31,7 @@
     --font-display: "Fibre", "Ubuntu", sans-serif;
     --font-body: "Ubuntu", sans-serif;
 
-    --font-size-hero: 3.5rem;
+    --font-size-hero: 4rem;
     --font-size-h1: 2.5rem;
     --font-size-h2: 2rem;
     --font-size-h3: 1.5rem;
@@ -44,9 +44,9 @@
     --font-weight-medium: 500;
     --font-weight-bold: 700;
 
-    --line-height-tight: 1.2;
-    --line-height-base: 1.6;
-    --line-height-relaxed: 1.8;
+    --line-height-tight: 1.1;
+    --line-height-base: 1.2;
+    --line-height-relaxed: 1.6;
 
     /* ========= SPACING ========= */
     --spacing-xs: 0.5rem;
@@ -326,7 +326,6 @@ button {
 .hero-section {
     min-height: 100vh;
     display: flex;
-    align-items: center;
     background: linear-gradient(rgba(59, 42, 31, 0.3), rgba(59, 42, 31, 0.3)),
                 url('images/cheetah.jpg') center/cover no-repeat;
     color: var(--color-primary-dark);
@@ -344,6 +343,9 @@ button {
     max-width: 600px;
     margin: 0;
     position: relative;
+    align-items: flex-start;
+    padding-top: 24vh;  /* 15% of viewport height - adjusts to screen size */
+    line-height: var(--line-height-tight);
 }
 
 .hero-paint {
