@@ -1,11 +1,13 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.getElementById('navToggle');
+    const hamburgerButton = document.getElementById('hamburgerButton');
     const navbarMenu = document.getElementById('navbarMenu');
 
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
+    // Toggle menu when hamburger is clicked
+    if (hamburgerButton) {
+        hamburgerButton.addEventListener('click', function() {
             navbarMenu.classList.toggle('active');
+            hamburgerButton.classList.toggle('active');
         });
     }
 
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 768) {
                 navbarMenu.classList.remove('active');
+                hamburgerButton.classList.remove('active');
             }
         });
     });
