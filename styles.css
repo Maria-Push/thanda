@@ -185,6 +185,7 @@ button {
 
 .btn-secondary:hover {
     background-color: var(--color-white);
+    opacity: 0.75;
     color: var(--color-accent);
 }
 
@@ -364,7 +365,7 @@ button {
     color: var(--color-primary-dark);
     text-align: left;
     position: relative;
-    cursor: default
+    cursor: default;
 }
 
 .hero-section .container {
