@@ -652,11 +652,21 @@ button {
     aspect-ratio: 1 / 0.8;  
 }
 
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);    /* Start/End: normal position */
+    }
+    50% {
+        transform: translateY(-8px);  /* Middle: 10px higher */
+    }
+}
+
 
 .stat-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-card);
     background-color: color-mix(in srgb, var(--color-secondary-light) 95%, transparent);
+    animation: float 1.8s ease-in-out infinite;
 }
 
 .stat-number {
