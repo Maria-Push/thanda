@@ -427,7 +427,7 @@ button {
 
 .what-we-do {
     background-color: var(--color-cream);
-    padding: var(--section-padding) 0;
+    padding: var(--spacing-lg) 0;
 }
 
 .section-title {
@@ -518,17 +518,29 @@ button {
    WHY IT MATTERS SECTION
    ======================================== */
 
-.why-matters {
-    background: linear-gradient(rgba(59, 42, 31, 0.5), rgba(59, 42, 31, 0.5)),
-                url('images/safari.jpg') center/cover no-repeat;
-    color: var(--color-white);
-    padding: var(--section-padding) 0;
+.why-matters, .stats-section {
+    background: 
+        linear-gradient(to right,
+            color-mix(in srgb, var(--color-footer) 100%, transparent) 0%,
+            color-mix(in srgb, var(--color-primary-dark) 60%, transparent) 45%,
+            color-mix(in srgb, var(--color-cream) 8%, transparent) 100%
+        ),
+        url('images/safari.jpg') center/cover no-repeat;
+    padding: var(--section-padding-small) 0;
     text-align: left;
 }
 
+.why-matters-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
 .why-matters-content {
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
+    display: flex;
 }
 
 .why-matters-title {
@@ -538,36 +550,42 @@ button {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: var(--spacing-lg);
+    color: var(--color-white);
 }
 
 .why-matters-text {
     font-size: 1.25rem;
     line-height: var(--line-height-relaxed);
+    color: var(--color-cream);
 }
 
 /* ========================================
    STATS SECTION
    ======================================== */
-
-.stats-section {
-    background: linear-gradient(rgba(246, 241, 232, 0.88), rgba(246, 241, 232, 0.88)),
-                url('images/safari.jpg') center/cover no-repeat;
-    padding: var(--section-padding) 0;
-}
+/* Right side - stats in 2x2 grid */
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+    grid-template-rows: repeat(2, 1fr);     /* 2 rows */
+    padding: var(--spacing-sm);
     gap: var(--spacing-lg);
 }
 
 .stat-card {
     background-color: var(--color-secondary-light);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-md) 12%;
     border-radius: var(--radius-lg);
     text-align: center;
     transition: var(--transition-medium);
+    /* content alignment */
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 0.8;  
 }
+
 
 .stat-card:hover {
     transform: translateY(-5px);
@@ -576,18 +594,39 @@ button {
 
 .stat-number {
     font-family: var(--font-display);
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: var(--font-weight-bold);
     color: var(--color-primary-dark);
     margin-bottom: var(--spacing-sm);
+    width: 100%;
 }
 
 .stat-text {
     font-size: var(--font-size-body);
     color: var(--color-primary-mid);
     line-height: var(--line-height-base);
+    width: 100%;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3; /*force exactly 3 line*/
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(1.4em * 3);  /*to reserve 3 lines*/
 }
 
+.stat-number::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-primary-dark) 50%,
+        transparent
+    );
+    margin: var(--spacing-sm) auto 0;
+}
 /* ========================================
    VOLUNTEER SECTION
    ======================================== */
@@ -917,6 +956,10 @@ margin-left: 0.3rem;
     .footer-content {
         grid-template-columns: 1fr;  /* Stack on mobile */
     }
+
+    .stat-card {
+    padding: var(--spacing-md) 8%;  /* Tighter padding */
+    }
 }
 
 @media (max-width: 480px) {
@@ -945,7 +988,20 @@ margin-left: 0.3rem;
     .hero-content {
         padding-top: 140px;  /* Fixed value on small screens */
         max-width: 100%;
-}
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;  /* 1 card per row */
+    }
+
+    .stat-card {
+        aspect-ratio: auto;  /* No square constraint */
+        padding: var(--spacing-lg);  /* Standard padding */
+    }
+
+    .stat-text {
+        max-width: 100%;  /* Full width */
+    }
 }
 
 
