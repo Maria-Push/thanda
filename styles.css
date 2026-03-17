@@ -953,10 +953,140 @@ margin-left: 0.3rem;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: var(--spacing-lg);
     text-align: center;
+    position: relative;
 }
+
+/* Savannah silhouette skyline */
+.footer-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;  /* Taller for visibility */
+    background: rgba(95, 182, 157, 0.5);  /* Solid color first to see if it works */
+    /* Savannah skyline: trees, giraffe, elephant silhouettes */
+    clip-path: polygon(
+        /* Start from bottom left */
+        0% 100%, 0% 75%,
+        
+        /* First acacia tree */
+        3% 75%, 5% 65%, 6% 55%, 7% 50%, 8% 55%, 9% 65%, 11% 75%,
+        
+        /* Grass */
+        15% 75%, 16% 70%, 17% 75%,
+        
+        /* Tall tree */
+        20% 75%, 22% 60%, 23% 45%, 24% 40%, 25% 45%, 26% 60%, 28% 75%,
+        
+        /* Small bushes */
+        32% 75%, 33% 72%, 34% 75%, 36% 72%, 37% 75%,
+        
+        /* Giraffe - tall neck and head */
+        40% 75%, 41% 70%, 42% 55%, 43% 40%, 44% 30%, 45% 25%, 46% 30%, 47% 40%, 48% 55%, 49% 70%, 50% 75%,
+        
+        /* Medium tree */
+        55% 75%, 57% 65%, 58% 55%, 59% 65%, 61% 75%,
+        
+        /* Elephant - rounded shape */
+        65% 75%, 66% 68%, 67% 62%, 68% 58%, 70% 55%, 72% 58%, 74% 62%, 75% 68%, 76% 75%,
+        
+        /* Grass patch */
+        78% 75%, 79% 72%, 80% 70%, 81% 72%, 82% 75%,
+        
+        /* Another acacia */
+        85% 75%, 87% 63%, 88% 52%, 89% 48%, 90% 52%, 91% 63%, 93% 75%,
+        
+        /* Final grass */
+        96% 75%, 97% 72%, 98% 75%,
+        
+        /* Close bottom right */
+        100% 75%, 100% 100%
+    );
+    opacity: 0.8;
+}
+ 
+/* Add gradient overlay for depth */
+.footer-bottom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(43, 29, 20, 0.15) 100%
+    );
+    pointer-events: none;
+}
+
+/* .footer-bottom::before { */
+
+    /* content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(95, 182, 157, 0.15) 5%,
+        rgba(255, 255, 255, 0.3) 15%,
+        rgba(95, 182, 157, 0.2) 25%,
+        rgba(255, 255, 255, 0.25) 35%,
+        rgba(95, 182, 157, 0.3) 45%,
+        rgba(255, 255, 255, 0.35) 55%,
+        rgba(95, 182, 157, 0.2) 65%,
+        rgba(255, 255, 255, 0.3) 75%,
+        rgba(95, 182, 157, 0.15) 85%,
+        rgba(255, 255, 255, 0.2) 95%,
+        transparent 100%
+    );
+    /* Chaotic wavy clip path - irregular waves */
+    clip-path: polygon(
+        0% 40%, 3% 55%, 6% 35%, 9% 65%, 12% 45%, 15% 60%, 18% 30%, 
+        21% 70%, 24% 50%, 27% 35%, 30% 65%, 33% 45%, 36% 55%, 39% 40%,
+        42% 60%, 45% 35%, 48% 70%, 51% 45%, 54% 55%, 57% 30%, 60% 65%,
+        63% 50%, 66% 40%, 69% 60%, 72% 35%, 75% 65%, 78% 50%, 81% 45%,
+        84% 60%, 87% 35%, 90% 55%, 93% 40%, 96% 65%, 100% 50%,
+        /* Return path for closed shape */
+        100% 100%, 0% 100%
+    ); */
+}
+
+ 
+/* Add second tire track */
+/* .footer-bottom::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 8%,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(95, 182, 157, 0.15) 40%,
+        rgba(255, 255, 255, 0.25) 60%,
+        rgba(95, 182, 157, 0.1) 80%,
+        transparent 100%
+    );
+   
+    clip-path: polygon(
+        0% 60%, 4% 45%, 8% 70%, 12% 40%, 16% 65%, 20% 50%, 24% 35%,
+        28% 65%, 32% 50%, 36% 60%, 40% 35%, 44% 65%, 48% 45%, 52% 60%,
+        56% 40%, 60% 70%, 64% 45%, 68% 60%, 72% 35%, 76% 65%, 80% 50%,
+        84% 40%, 88% 65%, 92% 50%, 96% 45%, 100% 55%,
+        100% 100%, 0% 100%
+    );
+} */
 
 .footer-copyright {
     font-size: var(--font-size-small);
