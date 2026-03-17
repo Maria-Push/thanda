@@ -831,13 +831,14 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     align-items: start;
-    gap: 2rem;
+    gap: 1rem;
     margin-bottom: var(--spacing-xl);
     grid-template-areas: "contact explore connect";
 }
 
 .footer-content .explore {
     grid-area: explore;
+    margin-left: var(--spacing-xl);
 }
 
 .footer-content .connect {
@@ -855,6 +856,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    line-height: var(--line-height-relaxed);
 }
 .footer-heading {
     font-family: var(--font-display);
@@ -871,7 +873,7 @@ button {
 }
 
 .explore .footer-links {
-    padding-top: 4px;
+    padding: 0;
 }
 
 .footer-links a:hover {
@@ -917,6 +919,7 @@ button {
 .contact-info {
     margin-bottom: var(--spacing-lg);
     line-height: var(--line-height-relaxed);
+    padding-top: 0;
 }
 
 .contact-info p {
