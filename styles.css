@@ -188,7 +188,8 @@ button {
    ======================================== */
 
 .container {
-    max-width: var(--container-max-width);
+    width: calc(100% - 3rem);
+    max-width: 90vw;
     margin: 0 auto;
     padding: 0 var(--container-padding);
 }
@@ -634,7 +635,7 @@ button {
     display: grid;
     grid-template-columns: repeat(2, 1fr);  /* 2 columns */
     grid-template-rows: repeat(2, 1fr);     /* 2 rows */
-    padding: var(--spacing-sm);
+    /* padding: var(--spacing-sm); */
     gap: var(--spacing-lg);
 }
 
@@ -926,6 +927,7 @@ button {
     display: flex;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
+    color:var(--color-accent);
 }
 
 .social-icons a {
