@@ -75,6 +75,11 @@
     --transition-fast: 0.2s ease;
     --transition-medium: 0.3s ease;
     --transition-slow: 0.5s ease;
+
+     /* Skyline heights */
+    --skyline-height-desktop: 9.375rem;
+    --skyline-height-tablet: 6.25rem;
+    --skyline-height-mobile: 4.375rem;
 }
 
 /* ========================================
@@ -912,7 +917,7 @@ button {
 
 .form-note {
     font-size: var(--font-size-small);
-    opacity: 0.8;
+    opacity: 0.6;
     margin-top: var(--spacing-xs);
 }
 
@@ -929,7 +934,7 @@ button {
 .social-icons {
     display: flex;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
     color:var(--color-accent);
 }
 
@@ -964,9 +969,12 @@ margin-left: 0.3rem;
     top: 0;  /* ← CHANGE back to 0 (inside footer-bottom) */
     left: 0;
     right: 0;
-    height: 150px;
-    background: red;  /* Keep testing with red first */
-    opacity: 1;
+    height: var(--skyline-height-desktop);
+    background: url('images/skyline.png');
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
     z-index: 1;
 }
 
@@ -974,6 +982,7 @@ margin-left: 0.3rem;
     font-size: var(--font-size-small);
     position: relative;
     z-index: 2;
+    margin: 0 auto;
 }
 
 .footer-copyright a {
@@ -1059,11 +1068,9 @@ margin-left: 0.3rem;
     padding: var(--spacing-md) 8%;  /* Tighter padding */
     }
 
-    @media (max-width: 768px) {
     .footer-bottom::before {
-        height: 100px;  /* Medium height */
+        height: var(--skyline-height-tablet);
     }
-}
 }
 
 @media (max-width: 480px) {
@@ -1110,6 +1117,10 @@ margin-left: 0.3rem;
     .footer-bottom::before {
         height: 70px;  /* Shortest */
         opacity: 0.6;  /* More subtle */
+    }
+
+    .footer-bottom::before {
+        height: var(--skyline-height-mobile);
     }
 }
 
