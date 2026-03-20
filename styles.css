@@ -507,6 +507,7 @@ button {
     clip-path: polygon(0 0, 100% 0%, 100% 82%, 0 92%);
     padding-bottom: calc(var(--section-padding) + 4rem);
     margin-top: -3rem;
+    z-index: 2;
 }
 
 .section-title {
@@ -612,6 +613,10 @@ button {
     text-align: left;
     min-height: 500px;
     position: relative;
+    clip-path: polygon(0 0, 100% 0%, 100% 82%, 0 92%);
+    padding-bottom: calc(var(--section-padding) + 4rem);
+    margin-top: -10rem;
+    z-index: 1;
     
 }
 
