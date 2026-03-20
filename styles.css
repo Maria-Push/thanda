@@ -420,6 +420,7 @@ button {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
     padding-bottom: calc(var(--section-padding) + 4rem);
     margin-top: -3rem;
+    z-index: 5;
 }
 
 
@@ -504,10 +505,10 @@ button {
     background-color: yellowgreen;
     padding: var(--spacing-lg) 0;
     position: relative;
-    clip-path: polygon(0 0, 100% 0%, 100% 82%, 0 92%);
+    clip-path: polygon(0 0, 100% 0%, 100% 86%, 0 92%);
     padding-bottom: calc(var(--section-padding) + 4rem);
     margin-top: -3rem;
-    z-index: 2;
+    z-index: 4;
 }
 
 .section-title {
@@ -616,8 +617,7 @@ button {
     clip-path: polygon(0 0, 100% 0%, 100% 82%, 0 92%);
     padding-bottom: calc(var(--section-padding) + 4rem);
     margin-top: -10rem;
-    z-index: 1;
-    
+    z-index: 3;
 }
 
 #impact {
@@ -671,6 +671,8 @@ button {
     grid-template-rows: repeat(2, 1fr);     /* 2 rows */
     /* padding: var(--spacing-sm); */
     gap: var(--spacing-lg);
+    position: relative;
+    z-index: 10; 
 }
 
 .stat-card {
@@ -684,7 +686,8 @@ button {
     flex-direction: column;  
     justify-content: center;
     align-items: center;
-    aspect-ratio: 1 / 0.8;  
+    aspect-ratio: 1 / 0.8;
+    z-index: 15;  
 }
 
 @keyframes float {
@@ -702,6 +705,7 @@ button {
     box-shadow: var(--shadow-card);
     background-color: color-mix(in srgb, var(--color-secondary-light) 95%, transparent);
     animation: float 1.8s ease-in-out infinite;
+    z-index: 20;
 }
 
 .stat-number {
@@ -754,6 +758,7 @@ button {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
     padding-bottom: calc(var(--section-padding) + 4rem);
     margin-top: -3rem;
+    z-index: 2;
 }
 
 .volunteer-intro {
@@ -819,6 +824,7 @@ button {
     padding-bottom: calc(var(--section-padding) + 4rem);
     margin-top: -3rem;
     position: relative;
+    z-index: 1;
 }
 
 .stories-grid {
@@ -870,6 +876,7 @@ button {
     color: var(--color-white);
     padding: var(--spacing-3xl) 0 var(--spacing-lg);
     position: relative;
+    z-index: 0;
 }
 
 .footer-content {
