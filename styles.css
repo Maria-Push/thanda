@@ -409,12 +409,22 @@ button {
 .hero-section {
     min-height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(rgba(59, 42, 31, 0.3), rgba(59, 42, 31, 0.3)),
                 url('images/cheetah.jpg') center/cover no-repeat;
     color: var(--color-primary-dark);
     text-align: left;
     position: relative;
     cursor: default;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
+    padding-bottom: calc(var(--section-padding) + 4rem);
+    margin-top: -3rem;
+}
+
+
+#hero {
+    position: relative;
 }
 
 .hero-section .container {
@@ -431,6 +441,7 @@ button {
     align-items: flex-start;
     padding-top: 24vh;  /* 15% of viewport height - adjusts to screen size */
     line-height: var(--line-height-tight);
+    z-index: 2;
 }
 
 .hero-paint {
@@ -489,8 +500,13 @@ button {
    ======================================== */
 
 .what-we-do {
-    background-color: var(--color-cream);
+    /* background-color: var(--color-cream); */
+    background-color: yellowgreen;
     padding: var(--spacing-lg) 0;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0%, 100% 82%, 0 92%);
+    padding-bottom: calc(var(--section-padding) + 4rem);
+    margin-top: -3rem;
 }
 
 .section-title {
@@ -588,23 +604,31 @@ button {
             color-mix(in srgb, var(--color-primary-dark) 60%, transparent) 45%,
             color-mix(in srgb, var(--color-cream) 8%, transparent) 100%
         ),
-        url('images/safari.jpg') center/cover no-repeat;
+        url('images/safari.jpg');
     background-size: cover;
     background-position: center center;  /* Explicitly center */
+    background-repeat: no-repeat;
     padding: var(--section-padding-small) 0;
     text-align: left;
     min-height: 500px;
     position: relative;
-    overflow: hidden;
+    
 }
 
-
+#impact {
+    position: relative;
+}
 
 .why-matters-stats-grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: var(--spacing-3xl);
     align-items: start;
+    width: var(--content-max-width);  /* Match navbar width */
+    max-width: var(--content-max-width-desktop);  /* Match navbar max-width */
+    margin: 0 auto;  /* Center the grid */
+    padding: 0 var(--container-padding);  /* Side padding */
+    box-sizing: border-box;  /* Include padding in width */
 }
 
 .why-matters-content {
@@ -720,6 +744,11 @@ button {
     background-color: var(--color-accent);
     color: var(--color-white);
     padding: var(--section-padding) 0;
+    overflow: hidden;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+    padding-bottom: calc(var(--section-padding) + 4rem);
+    margin-top: -3rem;
 }
 
 .volunteer-intro {
@@ -778,8 +807,13 @@ button {
    ======================================== */
 
 .stories-section {
-    background-color: var(--color-cream);
+    /* background-color: var(--color-cream); */
+    background-color: peru;
     padding: var(--section-padding) 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
+    padding-bottom: calc(var(--section-padding) + 4rem);
+    margin-top: -3rem;
+    position: relative;
 }
 
 .stories-grid {
@@ -830,6 +864,7 @@ button {
     background-color: var(--color-footer);
     color: var(--color-white);
     padding: var(--spacing-3xl) 0 var(--spacing-lg);
+    position: relative;
 }
 
 .footer-content {
@@ -934,7 +969,7 @@ button {
 .social-icons {
     display: flex;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     color:var(--color-accent);
 }
 
@@ -1071,6 +1106,7 @@ margin-left: 0.3rem;
     .footer-bottom::before {
         height: var(--skyline-height-tablet);
     }
+
 }
 
 @media (max-width: 480px) {
