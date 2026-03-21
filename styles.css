@@ -959,11 +959,11 @@ button {
     padding: 0.875rem 1rem;
     border-radius: var(--radius-sm);
     font-size: var(--font-size-small);
-    font-style: italic;
 }
 
 .form-input::placeholder {
     color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
 }
 
 .form-input:focus {
