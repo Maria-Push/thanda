@@ -910,6 +910,15 @@ button {
     align-items: flex-start;
     line-height: var(--line-height-relaxed);
 }
+
+.footer-content .socials {
+    display: flex;  /* Simpler than grid for single row */
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: -1.2rem;
+}
+
 .footer-heading {
     font-family: var(--font-display);
     font-size: var(--font-size-h4);
@@ -978,30 +987,36 @@ button {
     margin-bottom: var(--spacing-xs);
 }
 
+.socials .footer-logo {
+    max-width: 80px;
+    opacity: 0.8;
+    margin-left: -0.8rem;  /* Compensate for logo padding */
+}
+
 .social-icons {
-    display: flex;
+    display: flex;  /* Simpler than grid for single row */
+    flex-direction: row;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xs);
-    color:var(--color-accent);
 }
 
 .social-icons a {
     font-size: 1.5rem;
     transition: var(--transition-fast);
-}
+    color: var(--color-cream);
+    display: inline-flex;
+    opacity: 0.8;
 
-.social-icons .bi-instagram {
-margin-left: 0.3rem;
 }
 
 .social-icons a:hover {
     color: var(--color-accent);
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .footer-logo {
     max-width: 80px;
     opacity: 0.8;
+    margin-left: -0.5rem;
 }
 
 .footer-bottom {
