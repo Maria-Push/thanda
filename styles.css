@@ -958,7 +958,8 @@ button {
     color: var(--color-white);
     padding: 0.875rem 1rem;
     border-radius: var(--radius-sm);
-    font-size: var(--font-size-body);
+    font-size: var(--font-size-small);
+    font-style: italic;
 }
 
 .form-input::placeholder {
@@ -968,7 +969,7 @@ button {
 .form-input:focus {
     outline: none;
     border-color: var(--color-accent);
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.20);
 }
 
 .form-note {
