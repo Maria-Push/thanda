@@ -874,7 +874,7 @@ button {
 .footer {
     background-color: var(--color-footer);
     color: var(--color-white);
-    padding: var(--spacing-3xl) 0 var(--spacing-lg);
+    padding: var(--spacing-3xl) 0 var(--spacing-xs);
     position: relative;
     z-index: 0;
 }
@@ -1026,9 +1026,9 @@ button {
 }
 
 .footer-bottom::before {
-     content: '';
+    content: '';
     position: absolute;
-    top: 0;  /* ← CHANGE back to 0 (inside footer-bottom) */
+    top: -4rem;  /* ← CHANGE back to 0 (inside footer-bottom) */
     left: 0;
     right: 0;
     height: var(--skyline-height-desktop);
@@ -1044,7 +1044,7 @@ button {
     font-size: var(--font-size-small);
     position: relative;
     z-index: 2;
-    margin: 0 auto;
+    margin: -4rem auto;
 }
 
 .footer-copyright a {
