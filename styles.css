@@ -63,6 +63,24 @@
     --container-max-width: 1200px;
     --container-padding: 1.5rem;
 
+    /* Diagonal angles for each section */
+    --diagonal-hero-left: 96%;       /* Hero: gentle right diagonal */
+    --diagonal-what-right: 86%;      /* What We Do: steep left diagonal */
+    --diagonal-what-left: 92%;
+    --diagonal-why-right: 82%;       /* Why It Matters: very steep left diagonal */
+    --diagonal-why-left: 92%;
+    --diagonal-volunteer-left: 90%;  /* Volunteer: moderate right diagonal */
+    --diagonal-stories-left: 96%;    /* Stories: gentle right diagonal */
+    
+    /* Padding and overlap */
+    --diagonal-padding-hero: 4rem;
+    --diagonal-padding-what: 8rem;   /* Needs more for steep angle */
+    --diagonal-padding-why: 10rem;   /* Needs most for steepest angle */
+    --diagonal-padding-volunteer: 6rem;
+    --diagonal-padding-stories: 4rem;
+    
+    --diagonal-overlap: -5rem;
+
     /* ========= BORDER RADIUS ========= */
     --radius-xs: 4px;
     --radius-sm: 8px;
@@ -417,9 +435,8 @@ button {
     text-align: left;
     position: relative;
     cursor: default;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
-    padding-bottom: calc(var(--section-padding) + 4rem);
-    margin-top: -3rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--diagonal-hero-left));
+    padding-bottom: calc(var(--section-padding) + var(--diagonal-padding-hero));
     z-index: 5;
 }
 
@@ -505,9 +522,9 @@ button {
     background-color: yellowgreen;
     padding: var(--spacing-lg) 0;
     position: relative;
-    clip-path: polygon(0 0, 100% 0%, 100% 86%, 0 92%);
-    padding-bottom: calc(var(--section-padding) + 4rem);
-    margin-top: -3rem;
+    clip-path: polygon(0 0, 100% 0, 100% var(--diagonal-what-right), 0 var(--diagonal-what-left));
+    padding-bottom: calc(var(--section-padding) + var(--diagonal-padding-what));
+    margin-top: var(--diagonal-overlap);
     z-index: 4;
 }
 
@@ -614,14 +631,10 @@ button {
     text-align: left;
     min-height: 500px;
     position: relative;
-    clip-path: polygon(0 0, 100% 0%, 100% 82%, 0 92%);
-    padding-bottom: calc(var(--section-padding) + 4rem);
-    margin-top: -10rem;
+    clip-path: polygon(0 0, 100% 0, 100% var(--diagonal-why-right), 0 var(--diagonal-why-left));
+    padding-bottom: calc(var(--section-padding) + var(--diagonal-padding-why));
+    margin-top: calc(var(--diagonal-overlap) * 2);  /* Double overlap for steep angle */
     z-index: 3;
-}
-
-#impact {
-    position: relative;
 }
 
 .why-matters-stats-grid {
@@ -672,7 +685,6 @@ button {
     /* padding: var(--spacing-sm); */
     gap: var(--spacing-lg);
     position: relative;
-    z-index: 10; 
 }
 
 .stat-card {
@@ -687,7 +699,7 @@ button {
     justify-content: center;
     align-items: center;
     aspect-ratio: 1 / 0.8;
-    z-index: 15;  
+    position: relative;
 }
 
 @keyframes float {
@@ -755,9 +767,9 @@ button {
     padding: var(--section-padding) 0;
     overflow: hidden;
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-    padding-bottom: calc(var(--section-padding) + 4rem);
-    margin-top: -3rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--diagonal-volunteer-left));
+    padding-bottom: calc(var(--section-padding) + var(--diagonal-padding-volunteer));
+    margin-top: calc(var(--diagonal-overlap) * 1.5);  /* More overlap for transition */
     z-index: 2;
 }
 
@@ -820,9 +832,9 @@ button {
     /* background-color: var(--color-cream); */
     background-color: peru;
     padding: var(--section-padding) 0;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
-    padding-bottom: calc(var(--section-padding) + 4rem);
-    margin-top: -3rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--diagonal-stories-left));
+    padding-bottom: calc(var(--section-padding) + var(--diagonal-padding-stories));
+    margin-top: var(--diagonal-overlap);
     position: relative;
     z-index: 1;
 }
@@ -877,6 +889,7 @@ button {
     padding: var(--spacing-3xl) 0 var(--spacing-xs);
     position: relative;
     z-index: 0;
+    margin-top: var(--diagonal-overlap);
 }
 
 .footer-content {
@@ -1066,6 +1079,24 @@ button {
         --font-size-h1: 2rem;
         --font-size-h2: 1.75rem;
         --section-padding: 3rem;
+
+         /* Make all angles gentler on tablet */
+        --diagonal-hero-left: 97%;
+        --diagonal-what-right: 90%;
+        --diagonal-what-left: 95%;
+        --diagonal-why-right: 88%;
+        --diagonal-why-left: 95%;
+        --diagonal-volunteer-left: 93%;
+        --diagonal-stories-left: 97%;
+        
+        /* Reduce padding */
+        --diagonal-padding-hero: 3rem;
+        --diagonal-padding-what: 5rem;
+        --diagonal-padding-why: 6rem;
+        --diagonal-padding-volunteer: 4rem;
+        --diagonal-padding-stories: 3rem;
+        
+        --diagonal-overlap: -3rem;
     }
 
     .navbar-toggler {
@@ -1141,6 +1172,24 @@ button {
     :root {
         --font-size-hero: 2rem;
         --section-padding: 2rem;
+
+         /* Almost flat on mobile */
+        --diagonal-hero-left: 98%;
+        --diagonal-what-right: 94%;
+        --diagonal-what-left: 97%;
+        --diagonal-why-right: 92%;
+        --diagonal-why-left: 97%;
+        --diagonal-volunteer-left: 96%;
+        --diagonal-stories-left: 98%;
+        
+        /* Minimal padding */
+        --diagonal-padding-hero: 2rem;
+        --diagonal-padding-what: 3rem;
+        --diagonal-padding-why: 4rem;
+        --diagonal-padding-volunteer: 2.5rem;
+        --diagonal-padding-stories: 2rem;
+        
+        --diagonal-overlap: -2rem;
     }
 
     .navbar {
