@@ -73,12 +73,6 @@
     --diagonal-stories-left: 96%;    /* Stories: gentle right diagonal */
     
     /* Padding and overlap */
-    --diagonal-padding-hero: 4rem;
-    --diagonal-padding-what: 8rem;   /* Needs more for steep angle */
-    --diagonal-padding-why: 10rem;   /* Needs most for steepest angle */
-    --diagonal-padding-volunteer: 6rem;
-    --diagonal-padding-stories: 4rem;
-    
     --diagonal-overlap: -5rem;
 
     /* ========= BORDER RADIUS ========= */
@@ -184,6 +178,26 @@ body {
     overflow-x: hidden;
 }
 
+.hero-section,
+.what-we-do,
+.why-matters-stats,
+.volunteer-section,
+.stories-section {
+    position: relative;
+    padding: var(--section-padding) 0;
+    padding-bottom: calc(var(--section-padding) + var(--diagonal-spacing));
+}
+
+/* Content containers - always on top */
+.hero-section .container,
+.what-we-do .container,
+.why-matters-stats .container,
+.volunteer-section .container,
+.stories-section .container {
+    position: relative;
+    z-index: 2;  /* Above background */
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -234,12 +248,13 @@ button {
 .btn-primary {
     background-color: var(--color-primary-dark);
     color: var(--color-white);
+    text-shadow: 0 1px 2px rgba(23, 10, 0, 0.6);
+    box-shadow: 0 1px 2px rgba(23, 10, 0, 0.6);
 }
 
 .btn-primary:hover {
     background-color: var(--color-primary-mid);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
 }
 
 .btn-secondary {
@@ -423,6 +438,10 @@ button {
 /* ========================================
    HERO SECTION
    ======================================== */
+.hero-section,
+.hero-container {
+  overflow: visible;
+}
 
 .hero-section {
     min-height: 100vh;
@@ -440,17 +459,13 @@ button {
     z-index: 5;
 }
 
-
-#hero {
-    position: relative;
-}
-
 .hero-section .container {
     max-width: none;
     margin: 0;
     margin-bottom: var(--spacing-xl);
     padding-left: 10%; /*of vw width, adjusts to screen size*/
     position: relative;
+    margin-top: -6.5rem;
 }
 
 .hero-content {
@@ -487,7 +502,7 @@ button {
     margin-bottom: var(--spacing-lg);
     position: relative; 
     z-index: 3; 
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .hero-subtitle {
@@ -497,20 +512,33 @@ button {
     margin-bottom: var(--spacing-xl);
     position: relative;
     z-index: 3;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 .hero-badge {
     display: inline-block;
     margin-top: var(--spacing-lg);
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 5.5rem 0.75rem 2.5rem;
     background-color: var(--color-accent);
-    border-radius: var(--radius-lg);
+    clip-path: polygon(
+        14px 0,
+        100% 0,
+        100% calc(100% - 14px),
+        calc(100% - 14px) 100%,
+        0 100%,
+        0 14px
+    );
+    filter: drop-shadow(0 0 20px red);
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-bold);
-    letter-spacing: 1px;
-    position: relative;
+    letter-spacing: 0.02rem;
+    position: absolute;
     z-index: 3;
+    right: -4.1vw;
+}
+
+.btn-hero:hover {
+    background-color: var(--color-accent-dark);
 }
 
 /* ========================================
@@ -527,6 +555,7 @@ button {
     margin-top: var(--diagonal-overlap);
     z-index: 4;
 }
+
 
 .section-title {
     font-family: var(--font-display);
@@ -773,6 +802,7 @@ button {
     z-index: 2;
 }
 
+
 .volunteer-intro {
     text-align: center;
     font-size: 1.25rem;
@@ -838,6 +868,7 @@ button {
     position: relative;
     z-index: 1;
 }
+
 
 .stories-grid {
     display: grid;
