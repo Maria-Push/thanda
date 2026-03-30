@@ -232,6 +232,7 @@ button {
 .section {
     position: relative;
     isolation: isolate;
+    overflow: visible;
 }
 
 .section::before {
@@ -242,6 +243,11 @@ button {
     transform: skewY(var(--skew-angle, 0deg));
     z-index: -1;
 }
+
+/* .section:has(.stat-card:hover) {
+    z-index: 5;
+    overflow: visible;
+} */
 
 .container {
     position: relative;
@@ -299,6 +305,7 @@ button {
 
 .btn-dark:hover {
     background-color: var(--color-primary-mid);
+    transform: translateY(-2px);
 }
 
 .btn-subscribe {
@@ -556,7 +563,8 @@ button {
 }
 
 .btn-hero:hover {
-    background-color: var(--color-accent-dark);
+    background-color: var(--color-footer);
+    color: var(--color-accent);
 }
 
 /* ========================================
@@ -567,10 +575,11 @@ button {
     
     min-height: 100vh;
     position: relative;
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-xs);
     display: flex;
     --section-bg: var(--color-cream);
-    --skew-angle: -2deg;
+    --skew-angle: 1.5deg;
     margin-top: -2.5rem;
 }
 
@@ -676,13 +685,12 @@ button {
     min-height: 100vh;
     position: relative;
     padding-bottom: var(--section-padding);
-    --section-bg: blue;
-    /* --section-bg: linear-gradient(to right,
+    --section-bg: linear-gradient(to right,
             color-mix(in srgb, var(--color-footer) 100%, transparent) 0%,
             color-mix(in srgb, var(--color-primary-dark) 60%, transparent) 45%,
             color-mix(in srgb, var(--color-cream) 8%, transparent) 100%
         ),
-        url('images/safari.jpg') center/cover no-repeat; */
+        url('images/safari.jpg') center/cover no-repeat;
     margin-top: -2rem;
 }
 
@@ -768,7 +776,7 @@ button {
     box-shadow: var(--shadow-card);
     background-color: color-mix(in srgb, var(--color-secondary-light) 95%, transparent);
     animation: float 1.8s ease-in-out infinite;
-    z-index: 20;
+    z-index: 999;
 }
 
 .stat-number {
@@ -816,13 +824,15 @@ button {
     min-height: 100vh;
     display: flex;
     color: var(--color-white);
-    padding: var(--section-padding) 0;
-    overflow: hidden;
+    padding-top: var(--section-padding-small);
+    padding-bottom: calc(var(--section-padding) + 2rem);
+    overflow: visible;
     position: relative;
-    --section-bg: red;
-    --skew-angle: -2deg;
+    --section-bg: var(--color-accent-dark);
+    --skew-angle: 1deg;
     /* z-index: 5; */
-    margin-top: -2.5rem;
+    margin-top: -1.5rem;
+    margin-bottom: -4rem;
     
 }
 
@@ -887,13 +897,14 @@ button {
    ======================================== */
 
 .stories-section {
-    /* background-color: var(--color-cream); */
-    padding: var(--section-padding) 0;
-    
-    padding-bottom: calc(var(--section-padding) + var(--diagonal-padding-stories));
+    padding: var(--section-padding-small) 0;
+    padding-bottom: var(--section-padding);
     position: relative;
-    --section-bg: peru; 
-    --skew-angle: -2deg;
+    --section-bg: var(--color-cream);
+    --skew-angle: -1.5deg;
+    overflow: visible;
+    margin-bottom: -2rem;
+
 }
 
 
@@ -944,12 +955,12 @@ button {
    ======================================== */
 
 .footer {
-    background-color: var(--color-footer);
     color: var(--color-white);
     padding: var(--spacing-3xl) 0 var(--spacing-xs);
     position: relative;
+    --section-bg: var(--color-footer);
     z-index: 0;
-    /* margin-top: var(--diagonal-overlap); */
+    overflow: visible;
 }
 
 .footer-content {
