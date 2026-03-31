@@ -283,6 +283,19 @@ button {
     transform: translateY(-12px);
 }
 
+/* Modifier classes for image background */
+.card-experience {
+    background-image: url('images/leopard.jpg');
+}
+
+.card-programs {
+    background-image: url('images/giraffe1.jpg');
+}
+
+.card-community {
+    background-image: url('images/buffalo.jpg');
+}
+
 .image-section-wrapper {
     background: 
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
@@ -957,12 +970,50 @@ button {
 }
 
 .volunteer-card {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-lg);
+    /* background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); */
     text-align: center;
+
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    
+    /* Background image setup */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Glass feel */
+    backdrop-filter: blur(6px);
+    
+    /* Layout */
+    padding: var(--spacing-xl);
+    color: var(--color-white);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: var(--transition-medium);
+}
+
+.volunteer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    /* Light transparent layer */
+    background: rgba(0, 0, 0, 0.35); /* adjust */
+
+    /* Optional: glass tint */
+    backdrop-filter: blur(4px);
+
+    z-index: 1;
+}
+
+.volunteer-card > * {
+    position: relative;
+    z-index: 2;
 }
 
 .volunteer-card:hover {
