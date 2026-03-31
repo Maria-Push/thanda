@@ -296,6 +296,10 @@ button {
     background-image: url('images/buffalo.jpg');
 }
 
+.conservation-card {
+    will-change: transform;
+}
+
 .image-section-wrapper {
     background: 
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
@@ -688,12 +692,18 @@ button {
     padding: var(--spacing-2xl) var(--spacing-xl);
     border-radius: var(--radius-lg);
     text-align: center;
-    transition: var(--transition-medium);
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease-in-out,
+        background-color 0.35s ease-in-out,
+        color 0.35s ease-in-out;
 }
 
 .conservation-card:hover {
     background-color: var(--color-secondary-light);
-    border: 2px solid var(--color-primary-dark);
+    outline: 2px solid var(--color-primary-dark);
+    outline-offset: -2px;
     color: var(--color-primary-dark);
     transform: translateY(-8px);
     box-shadow: var(--shadow-medium);
