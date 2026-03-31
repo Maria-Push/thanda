@@ -692,6 +692,9 @@ button {
 }
 
 .conservation-card:hover {
+    background-color: var(--color-secondary-light);
+    border: 2px solid var(--color-primary-dark);
+    color: var(--color-primary-dark);
     transform: translateY(-8px);
     box-shadow: var(--shadow-medium);
 }
@@ -989,12 +992,14 @@ button {
     /* Layout */
     padding: var(--spacing-xl);
     color: var(--color-white);
+    box-shadow: 0 4px 10px rgba(59, 42, 31, 0.2);
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: var(--transition-medium);
+    transition: transform 0.3s ease, background-size 0.3s ease;
 }
 
 .volunteer-card::before {
@@ -1007,9 +1012,9 @@ button {
 
     /* Optional: glass tint */
     backdrop-filter: blur(4px);
-
     z-index: 1;
 }
+
 
 .volunteer-card > * {
     position: relative;
@@ -1017,8 +1022,13 @@ button {
 }
 
 .volunteer-card:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+}
+
+.volunteer-card:hover::before {
+    background: rgba(0, 0, 0, 0.5);   /* stronger contrast */
+    backdrop-filter: blur(6px);       /* subtle increase */
+    transition: var(--transition-fast);
 }
 
 .volunteer-actions {
