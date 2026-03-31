@@ -244,16 +244,22 @@ button {
     z-index: -1;
 }
 
-/* .section:has(.stat-card:hover) {
-    z-index: 5;
-    overflow: visible;
-} */
 
 .container {
     position: relative;
     z-index: 2;
 }
 
+
+.stat-card {
+    position: relative;
+    z-index: 1;
+}
+
+.stat-card:hover {
+    z-index: 50;
+    transform: translateY(-12px);
+}
 
 .image-section-wrapper {
     background: 
