@@ -761,6 +761,7 @@ button {
         ),
         url('images/safari.jpg') center/cover no-repeat;
     margin-top: -2rem;
+    z-index: 0;
 }
 
 .why-matters-stats-grid {
