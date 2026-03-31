@@ -322,7 +322,7 @@ button {
 }
 
 .btn-secondary:hover {
-    
+    background: 
     opacity: 0.75;
     color: var(--color-accent);
 }
