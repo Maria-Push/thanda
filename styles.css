@@ -651,8 +651,18 @@ button {
     --section-bg: var(--color-cream);
     --skew-angle: 1.5deg;
     margin-top: -2.5rem;
+    z-index: 1;
 }
 
+.what-we-do-cards-layer {
+    margin-top: -23rem;
+    position: relative;
+    z-index: 5;
+}
+
+#impact {
+    z-index: 1;
+}
 
 .what-we-do .container {
     position: relative;
@@ -776,6 +786,7 @@ button {
     margin-top: -2rem;
     z-index: 1;
 }
+
 
 .why-matters-stats-grid {
     display: grid;
@@ -914,7 +925,7 @@ button {
     overflow: visible;
     position: relative;
     --section-bg: var(--color-accent-dark);
-    --skew-angle: 1deg;
+    --skew-angle: 1.5deg;
     /* z-index: 5; */
     margin-top: -1.5rem;
     margin-bottom: -4rem;
@@ -978,7 +989,7 @@ button {
     position: absolute;
     z-index: 3;
     right: -10.1vw;
-    top: -8vh;
+    top: -6vh;
 }
 
 .volunteer-grid {
