@@ -2,6 +2,26 @@
    CSS VARIABLES
    ======================================== */
 
+/* ========================================
+   CUSTOM FONT - FIBRE
+   ======================================== */
+
+@font-face {
+    font-family: 'Fibre';
+    src: url('fonts/Fibre.woff2') format('woff2');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fibre';
+    src: url('fonts/Fibre.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* ========= COLORS ========= */
     /* Primary Neutrals */
@@ -124,25 +144,7 @@
     transform: scale(1.2) rotate(var(--rotation));
 }
 
-/* ========================================
-   CUSTOM FONT - FIBRE
-   ======================================== */
 
-@font-face {
-    font-family: 'Fibre';
-    src: url('fonts/Fibre.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Fibre';
-    src: url('fonts/Fibre.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
 
 /* ========================================
    RESET & BASE STYLES
@@ -218,6 +220,8 @@ button {
     max-width: 90vw;
     margin: 0 auto;
     padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 2;
 }
 
 .hero-section,
@@ -267,11 +271,6 @@ button {
     z-index: 1;
 }
 
-.container {
-    position: relative;
-    z-index: 2;
-}
-
 
 .stat-card {
     position: relative;
@@ -294,10 +293,6 @@ button {
 
 .card-community {
     background-image: url('images/buffalo.jpg');
-}
-
-.conservation-card {
-    will-change: transform;
 }
 
 .image-section-wrapper {
@@ -346,9 +341,6 @@ button {
 
 .btn-grad {
   background-image: linear-gradient(to right, var(--color-primary-light) 0%, var(--color-primary-dark) 51%, var(--color-primary-light) 100%);
-}
-
-.btn-grad {
   transition: 0.5s;
   background-size: 200% auto;
   color: var(--color-cream);
@@ -476,7 +468,6 @@ button {
 
 .nav-link {
     color: var(--color-primary-dark);
-    font-weight: var(--font-weight-medium);
     font-size: 0.95rem;
     padding: 0.5rem 1rem;
     border-radius: 16px;
@@ -488,7 +479,6 @@ button {
 
 .nav-link:hover {
     color: var(--color-cream);
-    opacity: 0.7;
     background-color: var(--color-accent-dark);
     opacity: 0.8;
     transform: scale(105%) translate(0);
@@ -611,6 +601,7 @@ button {
 }
 
 .hero-badge {
+    text-transform: uppercase;
     display: inline-block;
     margin-top: var(--spacing-2xl);
     padding: 0.75rem 5.5rem 0.75rem 1.5rem;
@@ -683,6 +674,7 @@ button {
 
 .section-subtitle {
     text-align: center;
+    text-transform: uppercase;
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-medium);
     letter-spacing: 2px;
@@ -970,6 +962,7 @@ button {
 }
 
 .volunteer-badge {
+    text-transform: uppercase;
     display: inline-block;
     margin-top: var(--spacing-xs);
     padding: 0.75rem 5.5rem 0.75rem 1.5rem;
@@ -1357,195 +1350,189 @@ button {
     text-decoration: underline;
 }
 
-/*============== RESPONSIVE DESIGNS ==============*/
-
-/* Extra Large Desktop */
-@media (min-width: 1920px) { 
-
+/* ============================================================
+   1. EXTRA LARGE — ≥ 1920px
+   Wide monitors, TV screens, large external displays
+============================================================ */
+@media (min-width: 1920px) {
+ 
+    :root {
+        --font-size-hero: 5rem;
+    }
+ 
     .hero-section .container {
         max-width: 1400px;
         padding-left: 8%;
     }
-    .hero-title {
-        font-size: 5rem;  /* Bigger on huge screens */
-    }
 }
-
-/* Large Desktop (default) */
-/* 1200px - 1919px - No media query needed */
-
-/* Medium Desktop / Laptop */
+ 
+ 
+/* ============================================================
+   2. MEDIUM DESKTOP / LAPTOP — ≤ 1199px
+   Standard laptops, smaller desktop monitors
+============================================================ */
 @media (max-width: 1199px) {
-
+ 
     .hero-title {
-        font-size: 3.5rem;  /* Reduce from 4rem */
+        font-size: 3.5rem;
     }
-    
+ 
     .hero-paint {
         width: 60vw;
         left: -18vw;
     }
-
-     .cards-grid {
+ 
+    .cards-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: var(--spacing-md);
     }
-
+ 
     .why-matters-stats-grid {
-        grid-template-columns: 1fr 1.2fr;  /* Adjust ratio */
+        grid-template-columns: 1fr 1.2fr;
         gap: var(--spacing-2xl);
     }
 }
-
-/* === TABLET LANDSCAPE (1024px) === */
+ 
+ 
+/* ============================================================
+   3. TABLET LANDSCAPE — ≤ 1024px
+   iPads in landscape, large Android tablets
+============================================================ */
 @media (max-width: 1024px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+ 
+    /* --- Navbar --- */
+    .navbar {
+        width: calc(100% - 2rem);
     }
-    
+ 
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+ 
+    /* --- Hero --- */
+    .hero-section .container {
+        padding-left: 8%;
+    }
+ 
+    .hero-title {
+        font-size: 3rem;
+    }
+ 
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+ 
+    .hero-badge {
+        right: -5vw;
+        padding-right: 4rem;
+        font-size: 0.75rem;
+    }
+ 
+    .hero-paint {
+        opacity: 0.35;
+        width: 55vw;
+    }
+ 
+    /* --- What We Do cards --- */
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+ 
     .conservation-card {
         padding: var(--spacing-xl);
     }
-    
+ 
     .card-icon {
         font-size: 3rem;
     }
-
+ 
+    /* Pull the floating cards layer up less aggressively */
+    .what-we-do-cards-layer {
+        margin-top: -12rem;
+    }
+ 
+    /* --- Impact / Stats --- */
     .why-matters-stats-grid {
-        grid-template-columns: 1fr;  /* Stack vertically */
+        grid-template-columns: 1fr;
         gap: var(--spacing-xl);
     }
-    
+ 
     .why-matters-content {
         max-width: 100%;
         text-align: center;
         margin-bottom: var(--spacing-xl);
     }
-    
+ 
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);  /* Keep 2x2 */
+        grid-template-columns: repeat(2, 1fr);
         max-width: 600px;
         margin: 0 auto;
     }
-    
-    .why-matters, .stats-section {
-        background-position: center center;  /* Ensure center */
+ 
+    .why-matters-stats-grid {
+        padding: 0 var(--spacing-lg);
     }
- }
-
-/* Tablet Landscape */
-@media (max-width: 1024px) { 
-
-    .hero-section .container {
-        padding-left: 8%;
-    }
-    
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .hero-badge {
-        right: -5vw;  /* Move closer */
-        padding-right: 4rem;
-        font-size: 0.75rem;
-    }
-    
-    .hero-paint {
-        opacity: 0.35;  /* More subtle on smaller screens */
-        width: 55vw;
-    }
-
-    .navbar {
-        width: calc(100% - 2rem);
-    }
-    
-    .nav-link {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-
+ 
+    /* --- Volunteer --- */
     .volunteer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
     }
-    
+ 
     .volunteer-card:nth-child(3) {
-        grid-column: span 2;  /* Last card full width */
+        grid-column: span 2;
         max-width: 500px;
         margin: 0 auto;
     }
-
+ 
+    /* --- Stories --- */
     .stories-grid {
         gap: var(--spacing-md);
     }
-    
+ 
     .story-card:nth-child(1) {
         min-height: 240px;
     }
-
-     .footer-content {
+ 
+    /* --- Footer --- */
+    .footer-content {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: 
+        grid-template-areas:
             "contact explore"
             "connect connect";
         gap: var(--spacing-xl);
     }
-    
+ 
     .footer-content .connect {
         max-width: 600px;
         margin: 0 auto;
     }
-
 }
-
-/* Tablet Portrait */
-@media (max-width: 768px) { 
-
-    .hero-section .container {
-        padding-left: 5%;
+ 
+ 
+/* ============================================================
+   4. TABLET PORTRAIT — ≤ 768px
+   iPads in portrait, large phones in landscape
+============================================================ */
+@media (max-width: 768px) {
+ 
+    :root {
+        --font-size-hero: 2.5rem;
+        --font-size-h1: 2rem;
+        --font-size-h2: 1.75rem;
+        --section-padding: 3rem;
     }
-    
-    .hero-content {
-        padding-top: 20vh;
-        max-width: 500px;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    
-    .hero-badge {
-        position: static;  /* Remove absolute positioning */
-        margin-top: var(--spacing-lg);
-        padding: 0.75rem 1.5rem;
-        right: auto;
-        filter: none;  /* Remove drop shadow */
-    }
-    
-    .hero-paint {
-        display: none;  /* Hide on tablet - too distracting */
-    }
-
-    .logo {
-        height: 5rem;  /* Reduce from 7rem */
-    }
-    
-    .hamburger-button {
-        display: flex;
-    }
-    
+ 
+    /* --- Navbar: switch to hamburger --- */
     .navbar-menu {
         display: none;
     }
-    
+ 
+    .hamburger-button {
+        display: flex;
+    }
+ 
     .navbar-menu.active {
         display: flex;
         flex-direction: column;
@@ -1561,7 +1548,7 @@ button {
         box-shadow: var(--shadow-medium);
         z-index: 100;
     }
-    
+ 
     .nav-link {
         display: block;
         width: 100%;
@@ -1569,206 +1556,280 @@ button {
         padding: var(--spacing-sm);
         border-radius: var(--radius-sm);
     }
-
+ 
+    .logo {
+        height: 5rem;
+    }
+ 
+    /* --- Hero --- */
+    .hero-section .container {
+        padding-left: 5%;
+    }
+ 
+    .hero-content {
+        padding-top: 20vh;
+        max-width: 500px;
+    }
+ 
+    .hero-title {
+        font-size: 2.5rem;
+    }
+ 
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+ 
+    .hero-badge {
+        position: static;
+        margin-top: var(--spacing-lg);
+        padding: 0.75rem 1.5rem;
+        right: auto;
+        filter: none;
+    }
+ 
+    .hero-paint {
+        display: none;
+    }
+ 
+    /* --- What We Do cards --- */
     .cards-grid {
-        grid-template-columns: 1fr;  /* Single column */
+        grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
-    
+ 
     .conservation-card {
         max-width: 500px;
-        margin: 0 auto;  /* Center cards */
+        margin: 0 auto;
     }
-
+ 
+    .what-we-do-cards-layer {
+        margin-top: -6rem;
+    }
+ 
+    /* --- Impact / Stats --- */
     .why-matters-title {
         font-size: 2rem;
     }
-    
+ 
     .why-matters-text {
         font-size: 1.1rem;
     }
-    
+ 
+    .why-matters-stats-grid {
+        padding: 0 var(--spacing-md);
+    }
+ 
     .stat-card {
         padding: var(--spacing-md) 8%;
     }
-    
+ 
     .stat-number {
         font-size: 3rem;
     }
-    
+ 
     #pawTracks {
-        display: none;  /* Disable animation on tablet */
+        display: none;
     }
-
+ 
+    /* --- Volunteer --- */
     .volunteer-grid {
         grid-template-columns: 1fr;
     }
-    
+ 
     .volunteer-card:nth-child(3) {
         grid-column: span 1;
     }
-    
+ 
     .volunteer-card {
-        min-height: 250px;  /* Consistent height */
+        min-height: 250px;
     }
-    
+ 
     .volunteer-badge {
-        position: static;  /* Remove absolute */
+        position: static;
         margin: var(--spacing-md) auto;
         right: auto;
         top: auto;
         filter: none;
     }
-    
+ 
     .volunteer-description {
-        max-width: 90%;
+        max-width: 100%;
     }
-
-     .stories-grid {
+ 
+    .volunteer-actions {
+        flex-direction: column;
+    }
+ 
+    /* --- Stories --- */
+    .stories-grid {
         grid-template-columns: 1fr;
+        padding: 0;
     }
-    
+ 
     .story-card:nth-child(1) {
         grid-column: span 1;
         min-height: auto;
     }
-    
+ 
     .story-card {
         max-width: 500px;
         margin: 0 auto;
     }
-
+ 
+    /* --- Footer --- */
     .footer-content {
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
             "contact"
             "explore"
             "connect";
     }
-    
+ 
     .footer-content .explore {
         margin-left: 0;
     }
-    
+ 
     .footer-bottom::before {
         height: var(--skyline-height-tablet);
     }
-
+ 
+    .footer-content .socials {
+        width: 100%;
+    }
+ 
+    /* --- Buttons --- */
     .btn {
+        width: 100%;
         padding: 0.75rem 1.5rem;
         font-size: 0.95rem;
     }
- }
-
-/* Large Mobile */
-@media (max-width: 640px) { 
-
+}
+ 
+ 
+/* ============================================================
+   5. LARGE MOBILE — ≤ 640px
+   Large Android phones, iPhone Plus/Max in portrait
+============================================================ */
+@media (max-width: 640px) {
+ 
+    /* --- Hero --- */
     .hero-title {
         font-size: 2rem;
-        br {
-            display: none;  /* Remove line breaks */
-        }
     }
-    
+ 
+    .hero-title br,
     .hero-subtitle br {
         display: none;
     }
-
+ 
+    /* --- Typography --- */
     .section-title {
         font-size: 1.75rem;
     }
-    
+ 
     .section-subtitle {
         font-size: 0.8rem;
     }
-    
+ 
     .card-title {
         font-size: 1.25rem;
     }
-
-     .stats-grid {
-        grid-template-columns: 1fr;  /* Single column */
+ 
+    /* --- Stats --- */
+    .stats-grid {
+        grid-template-columns: 1fr;
         max-width: 400px;
+        margin: 0 auto;
     }
-    
+ 
     .stat-card {
-        aspect-ratio: auto;  /* Remove square constraint */
+        aspect-ratio: auto;
         padding: var(--spacing-lg);
     }
-
+ 
+    /* --- Volunteer --- */
     .volunteer-card::before {
-        background: rgba(0, 0, 0, 0.5);  /* Darker overlay for readability */
+        background: rgba(0, 0, 0, 0.5);
     }
-    
+ 
     .volunteer-intro::after {
         width: 10rem;
     }
 }
-
-/* Small Mobile */
-@media (max-width: 480px) { 
-
-    .hero-section .container {
-        padding-left: var(--container-padding);
+ 
+ 
+/* ============================================================
+   6. STANDARD MOBILE — ≤ 480px
+   Most iPhones and Android phones in portrait
+============================================================ */
+@media (max-width: 480px) {
+ 
+    :root {
+        --font-size-hero: 2rem;
+        --section-padding: 2rem;
     }
-    
-    .hero-content {
-        padding-top: 140px;
-        max-width: 100%;
-    }
-    
-    .hero-title {
-        font-size: 1.75rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.95rem;
-    }
-    
-    .btn-primary {
-        width: 100%;  /* Full width button */
-        padding: 1rem;
-    }
-    
-    .hero-badge {
-        width: 100%;
-        text-align: center;
-        clip-path: none;  /* Remove clip path */
-        border-radius: var(--radius-md);
-    }
-
+ 
+    /* --- Navbar --- */
     .navbar {
         width: calc(100% - 1rem);
         padding: 0.5rem 0.75rem;
     }
-    
+ 
     .logo {
         height: 4rem;
     }
-
+ 
+    /* --- Hero --- */
+    .hero-section .container {
+        padding-left: var(--container-padding);
+    }
+ 
+    .hero-content {
+        padding-top: 160px; /* Fixed px — avoids iOS address-bar jump */
+        max-width: 100%;
+    }
+ 
+    .hero-title {
+        font-size: 1.75rem;
+    }
+ 
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+ 
+    .hero-badge {
+        width: 100%;
+        text-align: center;
+        clip-path: none;
+        border-radius: var(--radius-md);
+    }
+ 
+    /* --- What We Do cards --- */
     .conservation-card {
         padding: var(--spacing-lg);
     }
-    
+ 
     .card-icon {
         font-size: 2.5rem;
     }
-    
+ 
     .card-list {
         font-size: 0.9rem;
     }
-
+ 
+    /* --- Stats --- */
     .stat-number {
         font-size: 2.5rem;
     }
-    
+ 
     .stat-text {
         font-size: 0.9rem;
-        line-clamp: 4;  /* Allow 4 lines on mobile */
-        -webkit-line-clamp: 4;  /* Allow 4 lines on mobile */
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
         min-height: calc(1.4em * 4);
     }
-
+ 
+    /* --- Volunteer --- */
     .volunteer-badge {
         width: 100%;
         text-align: center;
@@ -1776,257 +1837,122 @@ button {
         border-radius: var(--radius-md);
         padding: 0.75rem 1rem;
     }
-    
+ 
     .volunteer-actions {
         flex-direction: column;
     }
-    
-    .btn {
-        width: 100%;
-    }
-
+ 
+    /* --- Stories --- */
     .story-card {
         padding: var(--spacing-lg);
     }
-    
+ 
     .story-card:nth-child(1) .quote-icon {
         font-size: 3rem;
     }
-    
-    .story-card:nth-child(1) .story-text {
-        font-size: 1rem;
-    }
-    
+ 
+    .story-card:nth-child(1) .story-text,
     .story-card:nth-child(1) .story-author {
         font-size: 1rem;
     }
-
+ 
+    /* --- Footer --- */
     .footer {
         padding: var(--spacing-2xl) 0 var(--spacing-xs);
     }
-    
+ 
+    .footer-bottom {
+        padding-top: 120px;
+    }
+ 
     .footer-bottom::before {
         height: var(--skyline-height-mobile);
         opacity: 0.4;
     }
-    
-    .footer-bottom {
-        padding-top: 120px;
-    }
-    
+ 
     .footer-copyright {
         font-size: 0.75rem;
         margin: -3rem auto;
     }
-    
+ 
     .form-input {
-        font-size: 1rem;  /* Prevent zoom on iOS */
+        font-size: 1rem; /* Prevents auto-zoom on iOS */
     }
-
-    .btn {
+ 
+    /* --- Buttons --- */
+    .btn,
+    .btn-grad,
+    .btn-primary {
         width: 100%;
         padding: 1rem;
         font-size: 1rem;
     }
-    
-    .btn-grad {
-        width: 100%;
-    }
 }
-
-/* Extra Small Mobile */
-@media (max-width: 375px) { 
-
+ 
+ 
+/* ============================================================
+   7. SMALL MOBILE — ≤ 375px
+   iPhone SE, older small Android phones
+============================================================ */
+@media (max-width: 375px) {
+ 
+    /* --- Typography --- */
     .hero-title {
         font-size: 1.5rem;
     }
-
+ 
+    .section-title {
+        font-size: 1.5rem;
+    }
+ 
+    .volunteer-intro {
+        font-size: 0.95rem;
+    }
+ 
+    /* --- Stats --- */
+    .why-matters-stats-grid {
+        gap: var(--spacing-lg);
+    }
+ 
+    /* --- Footer socials --- */
     .socials {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
     }
-    
+ 
     .social-icons {
         margin-top: var(--spacing-sm);
     }
 }
+ 
+/* ============================================================
+   ACCESSIBILITY — Reduced Motion
+   This is completely separate from screen size breakpoints.
+   It activates when the user has "reduce motion" turned on
+   in their device settings (Settings → Accessibility).
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
 
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
-
-@media (max-width: 768px) {
-    :root {
-        --font-size-hero: 2.5rem;
-        --font-size-h1: 2rem;
-        --font-size-h2: 1.75rem;
-        --section-padding: 3rem;
-
-         /* Make all angles gentler on tablet */
-        --diagonal-hero-left: 97%;
-        --diagonal-what-right: 90%;
-        --diagonal-what-left: 95%;
-        --diagonal-why-right: 88%;
-        --diagonal-why-left: 95%;
-        --diagonal-volunteer-left: 93%;
-        --diagonal-stories-left: 97%;
-        
-        /* Reduce padding */
-        --diagonal-padding-hero: 3rem;
-        --diagonal-padding-what: 5rem;
-        --diagonal-padding-why: 6rem;
-        --diagonal-padding-volunteer: 4rem;
-        --diagonal-padding-stories: 3rem;
-        
-        --diagonal-overlap: -3rem;
+    .paw-track {
+        transition: none;
     }
 
-    .navbar-toggler {
-        display: block;
-    }
-
-    .navbar-menu {
+    #pawTracks {
         display: none;
     }
 
-    .hamburger-button {
-        display: flex;
+    .stat-card:hover {
+        animation: none;
+        transform: none;
     }
 
-    .navbar-menu.active {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--color-white);
-        border-radius: var(--radius-lg);
-        margin-top: var(--spacing-sm);
-        padding: var(--spacing-md);
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-
-     /* Add this: */
-    .hero-section {
-        padding-left: 5%;  /* Less space on tablets */
-    }
-
-    .navbar-toggler {
-        display: block;
-    }
-    /* ... rest stays the same */
-
-    .cards-grid,
-    .stats-grid,
-    .volunteer-grid,
-    .stories-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .volunteer-actions {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;  /* Stack on mobile */
-    }
-
+    .conservation-card,
+    .volunteer-card,
+    .story-card,
     .stat-card {
-    padding: var(--spacing-md) 8%;  /* Tighter padding */
-    }
-
-    .footer-bottom::before {
-        height: var(--skyline-height-tablet);
-    }
-
-    
-    .stories-grid {
-        grid-template-columns: 1fr;  /* Single column on tablet */
-    }
-    
-    .story-card:nth-child(1) {
-        grid-column: span 1;  /* No spanning needed */
-    }
-
-}
-
-@media (max-width: 480px) {
-    :root {
-        --font-size-hero: 2rem;
-        --section-padding: 2rem;
-
-         /* Almost flat on mobile */
-        --diagonal-hero-left: 98%;
-        --diagonal-what-right: 94%;
-        --diagonal-what-left: 97%;
-        --diagonal-why-right: 92%;
-        --diagonal-why-left: 97%;
-        --diagonal-volunteer-left: 96%;
-        --diagonal-stories-left: 98%;
-        
-        /* Minimal padding */
-        --diagonal-padding-hero: 2rem;
-        --diagonal-padding-what: 3rem;
-        --diagonal-padding-why: 4rem;
-        --diagonal-padding-volunteer: 2.5rem;
-        --diagonal-padding-stories: 2rem;
-        
-        --diagonal-overlap: -2rem;
-    }
-
-    .navbar {
-        width: calc(100% - 2rem);
-    }
-    /* Add this: */
-    .hero-section {
-        padding-left: var(--container-padding);  /* Minimal space on mobile */
-    }
-
-    .navbar {
-        width: calc(100% - 2rem);
-    }
-
-    /* Add these hero adjustments: */
-    .hero-section .container {
-        padding-left: var(--container-padding);  /* Minimal space on mobile */
-    }
-    
-    .hero-content {
-        padding-top: 140px;  /* Fixed value on small screens */
-        max-width: 100%;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;  /* 1 card per row */
-    }
-
-    .stat-card {
-        aspect-ratio: auto;  /* No square constraint */
-        padding: var(--spacing-lg);  /* Standard padding */
-    }
-
-    .stat-text {
-        max-width: 100%;  /* Full width */
-    }
-
-    .footer-bottom::before {
-        height: 70px;  /* Shortest */
-        opacity: 0.6;  /* More subtle */
-    }
-
-    .footer-bottom::before {
-        height: var(--skyline-height-mobile);
+        transition: none;
     }
 }
-
+ 
 
