@@ -508,7 +508,8 @@ button {
     background-color: var(--color-primary-dark);
     margin: 2px 0;
     border-radius: 20px;
-    transition: var(--transition-fast);
+    transition: var(--transition-fast), opacity var(--transition-fast);
+    transform-origin: center;
 }
 
 /* Animate hamburger to X when active */
@@ -772,8 +773,8 @@ button {
     grid-template-columns: 1fr 1.5fr;
     gap: var(--spacing-3xl);
     align-items: start;
-    width: var(--content-max-width);  /* Match navbar width */
-    max-width: var(--content-max-width-desktop);  /* Match navbar max-width */
+    width: 100%;
+    max-width: var(--container-max-width);
     margin: 0 auto;  /* Center the grid */
     padding: 0 var(--container-padding);  /* Side padding */
     box-sizing: border-box;  /* Include padding in width */
