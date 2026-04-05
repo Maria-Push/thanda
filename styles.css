@@ -1021,8 +1021,7 @@ button {
    ======================================== */
 
 .stories-section {
-    padding: var(--section-padding) 0;          /* was section-padding-small — now full */
-    padding-bottom: var(--section-padding);
+    padding: var(--section-padding) 0;
     position: relative;
     --section-bg: var(--color-cream);
     --skew-angle: -1.5deg;
