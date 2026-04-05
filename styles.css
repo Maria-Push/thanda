@@ -499,7 +499,7 @@ button {
 }
 
 .hamburger-button:hover {
-    background-color: rgba(250, 250, 250, 0.4);
+    background-color: rgba(90, 66, 48, 0.2);
 }
 
 .hamburger-button .bar {
