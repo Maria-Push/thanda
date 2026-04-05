@@ -347,18 +347,6 @@ button {
     background-color: var(--color-accent-dark);
 }
 
-
-
-.stat-card {
-    position: relative;
-    z-index: 1;
-}
-
-.stat-card:hover {
-    z-index: 50;
-    transform: translateY(-12px);
-}
-
 /* Modifier classes for image background */
 .card-experience {
     background-image: url('images/leopard.jpg');
@@ -495,11 +483,11 @@ button {
     align-items: center;
     border: none;
     cursor: pointer;
-    transition: var(--transition-fast);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .hamburger-button:hover {
-    background-color: rgba(90, 66, 48, 0.2);
+    background-color: rgba(250, 250, 250, 0.4);
 }
 
 .hamburger-button .bar {
@@ -541,6 +529,7 @@ button {
     text-align: left;
     cursor: default;
     padding-bottom: var(--section-padding);
+    position: relative;
 }
  
 .hero-section .container {
@@ -605,15 +594,16 @@ button {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
 }
  
-/* Angled badge — absolute so it can hang outside the content box */
+/* Angled badge — grips the right edge of the hero section, scrolls with page */
 .hero-badge {
     text-transform: uppercase;
     display: inline-block;
     position: absolute;
-    right: -46vw;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 3;
-    margin-top: var(--spacing-2xl);
-    padding: 0.75rem 5.5rem 0.75rem 1.5rem;
+    padding: 0.75rem 2.5rem 0.75rem 1.5rem;
     background-color: var(--color-accent);
     clip-path: polygon(
         14px 0, 100% 0,
@@ -633,12 +623,10 @@ button {
    ======================================== */
 
 .what-we-do {
-    
-    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: flex-start;
-     padding: var(--spacing-lg) 0 var(--spacing-xs);
+    padding: var(--spacing-lg) 0 var(--spacing-xs);
     --section-bg: var(--color-cream);
     --skew-angle: 1.5deg;
     margin-top: -2.5rem;
@@ -646,11 +634,11 @@ button {
 }
 
  
-/* Cards float over the section below via negative margin */
+/* Cards sit naturally below the heading/subtitle */
 .what-we-do-cards-layer {
     position: relative;
     z-index: 5;
-    margin-top: -23rem;
+    margin-top: 0;
 }
 
 .section-title {
@@ -678,7 +666,7 @@ button {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
 }
@@ -751,12 +739,10 @@ button {
 
 .why-matters,
 .stats-section {
-
-    padding: var(--section-padding-small) 0;
     text-align: left;
     min-height: 100vh;
     position: relative;
-    padding-bottom: var(--section-padding);
+    padding: var(--section-padding-small) 0 var(--section-padding);
     --section-bg: linear-gradient(to right,
             color-mix(in srgb, var(--color-footer) 100%, transparent) 0%,
             color-mix(in srgb, var(--color-primary-dark) 60%, transparent) 45%,
@@ -879,10 +865,10 @@ button {
     color: var(--color-primary-mid);
     line-height: var(--line-height-base);
     width: 100%;
+    /* Standard approach — webkit prefix required, no unprefixed equivalent yet */
     display: -webkit-box;
-    line-clamp: 3;
-    -webkit-line-clamp: 3; /*force exactly 3 line*/
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     overflow: hidden;
     min-height: calc(1.4em * 3);  /*to reserve 3 lines*/
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -1135,11 +1121,12 @@ button {
  
 .footer {
     color: var(--color-white);
-    padding: var(--spacing-3xl) 0 var(--spacing-xs);
+    padding: var(--spacing-3xl) 0 0;
     position: relative;
     --section-bg: var(--color-footer);
+    background-color: var(--color-footer);
     z-index: 0;
-    overflow: visible;
+    overflow: hidden;
 }
  
 .footer-content {
@@ -1148,7 +1135,7 @@ button {
     grid-template-areas: 'contact explore connect';
     align-items: start;
     gap: 1rem;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
 }
  
 .footer-content .contact { grid-area: contact; display: flex; flex-direction: column; }
@@ -1260,16 +1247,17 @@ button {
 }
  
 .footer-bottom {
-    padding-top: 180px;
-    text-align: center;
     position: relative;
+    text-align: center;
+    padding-top: calc(var(--skyline-height-desktop) + 2rem);
+    padding-bottom: 2rem;
 }
  
 /* Decorative skyline silhouette */
 .footer-bottom::before {
     content: '';
     position: absolute;
-    top: -4rem;
+    top: 0;
     left: 0;
     right: 0;
     height: var(--skyline-height-desktop);
@@ -1282,7 +1270,7 @@ button {
     font-size: var(--font-size-small);
     position: relative;
     z-index: 2;
-    margin: -4rem auto;
+    margin: 0 auto;
 }
  
 .footer-copyright a {
@@ -1316,12 +1304,8 @@ button {
     transform: translateY(-25%) translateX(-30%) scaleX(2.0) scaleY(1.3);
 }
 
-    .hero-badge {
-    right: -40vw;
-    }
- 
     .cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-md);
     }
  
@@ -1347,12 +1331,6 @@ button {
     .hero-title   { font-size: 3rem; }
     .hero-subtitle { font-size: 1.1rem; }
  
-    .hero-badge {
-    right: -34vw;
-    padding-right: 4rem;
-    font-size: 0.75rem;
-}
- 
     .hero-content::before {
     width: 48vw;
     left: -16vw;
@@ -1361,10 +1339,10 @@ button {
 }
  
     /* Cards */
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid { grid-template-columns: 1fr; }
     .conservation-card { padding: var(--spacing-xl); }
     .card-icon { font-size: 3rem; }
-    .what-we-do-cards-layer { margin-top: -12rem; }
+    .what-we-do-cards-layer { margin-top: 0; }
  
     /* Impact */
     .why-matters-stats-grid {
@@ -1466,15 +1444,18 @@ button {
  
     .hero-title    { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1rem; }
- 
+
+    /* Badge drops into normal flow on small screens */
     .hero-badge {
-    position: absolute;
-    right: -28vw;
-    padding: 0.65rem 3.5rem 0.65rem 1.25rem;
-    font-size: 0.7rem;
-    filter: drop-shadow(0 0 12px red);
-    margin-top: 0;
-}
+        position: static;
+        display: inline-block;
+        margin-top: var(--spacing-lg);
+        max-width: 100%;
+        clip-path: none;
+        border-radius: var(--radius-md);
+        padding: 0.65rem 1.25rem;
+        filter: none;
+    }
  
     .hero-content::before {
     display: none;
@@ -1487,11 +1468,11 @@ button {
     }
  
     .conservation-card {
-        max-width: 500px;
-        margin: 0 auto;
+        max-width: none;
+        margin: 0;
     }
  
-    .what-we-do-cards-layer { margin-top: -6rem; }
+    .what-we-do-cards-layer { margin-top: 0; }
  
     /* Impact */
     .why-matters-title { font-size: 2rem; }
@@ -1554,6 +1535,10 @@ button {
  
     .footer-content .explore { margin-left: 0; }
     .footer-content .socials { width: 100%; }
+    .footer-bottom {
+        padding-top: calc(var(--skyline-height-tablet) + 2rem);
+        padding-bottom: 2rem;
+    }
     .footer-bottom::before { height: var(--skyline-height-tablet); }
  
     /* Buttons */
@@ -1570,11 +1555,6 @@ button {
     .hero-title { font-size: 2rem; }
     .hero-title br, .hero-subtitle br { display: none; }
 
-    .hero-badge {
-    right: -22vw;
-    font-size: 0.65rem;
-    }
- 
     .section-title  { font-size: 1.75rem; }
     .section-subtitle { font-size: 0.8rem; }
     .card-title     { font-size: 1.25rem; }
@@ -1620,24 +1600,6 @@ button {
  
     .hero-title    { font-size: 1.75rem; }
     .hero-subtitle { font-size: 0.95rem; }
-    .hero-badge {
-    position: absolute;
-    right: -16vw;
-    padding: 0.6rem 2.5rem 0.6rem 1rem;
-    font-size: 0.65rem;
-    clip-path: polygon(
-        10px 0, 100% 0,
-        100% calc(100% - 10px),
-        calc(100% - 10px) 100%,
-        0 100%, 0 10px
-    );
-    width: auto;
-    text-align: left;
-    border-radius: 0;
-    filter: drop-shadow(0 0 10px red);
-    margin-top: 0;
-}
- 
     /* Cards */
     .conservation-card { padding: var(--spacing-lg); }
     .card-icon { font-size: 2.5rem; }
@@ -1663,10 +1625,13 @@ button {
     .story-card:nth-child(1) .story-author { font-size: 1rem; }
  
     /* Footer */
-    .footer { padding: var(--spacing-2xl) 0 var(--spacing-xs); }
+    .footer { padding: var(--spacing-2xl) 0 0; }
  
-    .footer-bottom { padding-top: 120px; }
- 
+    .footer-bottom {
+        padding-top: calc(var(--skyline-height-mobile) + 2rem);
+        padding-bottom: 2rem;
+    }
+
     .footer-bottom::before {
         height: var(--skyline-height-mobile);
         opacity: 0.4;
@@ -1674,7 +1639,7 @@ button {
  
     .footer-copyright {
         font-size: 0.75rem;
-        margin: -3rem auto;
+        margin: 0 auto;
     }
  
     .form-input { font-size: 1rem; } /* prevents iOS auto-zoom */
@@ -1695,12 +1660,6 @@ button {
     .hero-title    { font-size: 1.5rem; }
     .section-title { font-size: 1.5rem; }
 
-    .hero-badge {
-    right: -12vw;
-    font-size: 0.6rem;
-    padding: 0.5rem 2rem 0.5rem 0.875rem;
-}
- 
     .volunteer-intro { font-size: 0.95rem; }
  
     .why-matters-stats-grid { gap: var(--spacing-lg); }
