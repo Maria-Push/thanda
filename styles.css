@@ -612,7 +612,7 @@ button {
     text-transform: uppercase;
     display: inline-block;
     position: absolute;
-    right: -2%;
+    right: -2.5%;
     bottom: -10%;
     transform: none;
     z-index: 3;
@@ -949,8 +949,8 @@ button {
     text-transform: uppercase;
     display: inline-block;
      position: absolute;
-    bottom: 10%;
-    left: 5%;
+    top: -5%;
+    right: -6%;
     z-index: 3;
     padding: 0.75rem 5.5rem 0.75rem 1.5rem;
     background-color: var(--color-footer);
@@ -1042,9 +1042,9 @@ button {
     margin-bottom: -2rem;
     text-align: left;
     min-height: 100vh;
-    margin-top: 0;                              /* was -2rem — remove the overlap pull */
+    margin-top: -5%;                              /* was -2rem — remove the overlap pull */
     z-index: 3;
-    padding-top: calc(var(--section-padding) + 2rem) /*give the title breathing room from whatever skew overflow comes from the section above.*/
+    padding-top: calc(var(--section-padding) + 0.5rem) /*give the title breathing room from whatever skew overflow comes from the section above.*/
 }
     
 
@@ -1603,6 +1603,15 @@ button {
     .hero-title { font-size: 2rem; }
     .hero-title br, .hero-subtitle br { display: none; }
 
+    .hero-badge {
+    position: relative;
+    display: flex;
+    bottom: -20%;
+    font-size: 0.8rem;
+    padding: 0.6rem 2rem;
+    max-width: 50vw;
+}
+
     .section-title  { font-size: 1.75rem; }
     .section-subtitle { font-size: 0.8rem; }
     .card-title     { font-size: 1.25rem; }
@@ -1648,6 +1657,13 @@ button {
  
     .hero-title    { font-size: 1.75rem; }
     .hero-subtitle { font-size: 0.95rem; }
+
+    .hero-badge {
+    right: -0.5%;
+    bottom: -20%;
+    padding: 0.75rem 2.5rem 0.75rem 1.5rem;
+}
+
     /* Cards */
     .conservation-card { padding: var(--spacing-lg); }
     .card-icon { font-size: 2.5rem; }
