@@ -612,8 +612,8 @@ button {
     text-transform: uppercase;
     display: inline-block;
     position: absolute;
-    right: 0;
-    bottom: 8%;
+    right: -2%;
+    bottom: -10%;
     transform: none;
     z-index: 3;
     padding: 0.75rem 2.5rem 0.75rem 1.5rem;
