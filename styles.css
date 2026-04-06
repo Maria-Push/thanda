@@ -542,6 +542,7 @@ button {
     padding-bottom: var(--section-padding);
     position: relative;
     padding-top: 6rem;
+    overflow: hidden;
 }
  
 .hero-section .container {
@@ -1463,6 +1464,11 @@ button {
     }
  
     /* Hero */
+
+    .hero-section {
+        background-position: 40% center;
+    }
+
     .hero-section .container { padding-left: 5%; }
  
     .hero-content {
