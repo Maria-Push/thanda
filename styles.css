@@ -1330,7 +1330,10 @@ button {
 /* 3. TABLET LANDSCAPE — ≤ 1024px */
 @media (max-width: 1024px) {
     /* Navbar */
-    .navbar { width: calc(100% - 2rem); }
+    .navbar { 
+        width: calc(100% - 2rem); 
+        height: 10%;
+    }
  
     .nav-link {
         font-size: 0.9rem;
@@ -1481,6 +1484,11 @@ button {
     .hero-content::before {
     display: none;
 }
+
+    .btn-hero {
+        justify-content: center;
+        align-items: center;
+    }
  
     /* Cards */
     .cards-grid {
@@ -1611,7 +1619,7 @@ button {
     /* Navbar */
     .navbar {
         width: calc(100% - 1rem);
-        padding: 0.2rem 0.5rem;
+        padding: 0.5rem 1rem;
     }
  
     .logo { height: 4rem; }
