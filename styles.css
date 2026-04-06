@@ -1648,7 +1648,13 @@ button {
     .logo { height: 4rem; }
  
     /* Hero */
-    .hero-section .container { padding-left: var(--container-padding); }
+.hero-section {
+    background-position: 65% center;
+    top: -80%;
+}
+
+    .hero-section .container { padding-left: var(--container-padding);
+    }
  
     .hero-content {
         padding-top: max(4.5rem, 12dvh); /* dvh is the right fix for iOS */
