@@ -384,8 +384,7 @@ button {
     top: var(--spacing-md);
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 3rem);
-    max-width: 90vw;
+    width: min(1200px, calc(100% - 2rem));
     background-color: rgba(246, 241, 232, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 50px;
@@ -394,6 +393,7 @@ button {
     z-index: 10;
     transition: transform 0.4s ease, opacity 0.4s ease;
     box-sizing: border-box;
+    padding: 0.75rem 1.25rem;
 }
 
 .navbar .container {
@@ -402,6 +402,8 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 0.5rem;
+    gap: 1rem;
 }
 
 .navbar-brand {
@@ -412,7 +414,7 @@ button {
 
 .logo {
     position: relative;  /* was fixed — caused layout collapse */
-    height: 7rem;
+    height: clamp(3rem, 6vw, 5rem);
     width: auto;
 }
 
@@ -492,6 +494,7 @@ button {
     border: none;
     cursor: pointer;
     transition: transform var(--transition-fast), opacity var(--transition-fast);
+    margin-left: auto;
 }
 
 .hamburger-button:hover {
@@ -543,7 +546,7 @@ button {
 .hero-section .container {
     max-width: none;
     margin: 0;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 0;
     padding-left: 10%;
     position: relative;
     margin-top: 0
@@ -553,7 +556,7 @@ button {
     max-width: 600px;
     margin: 0;
     align-items: flex-start;
-    padding-top: max(5rem, 15dvh); /* dvh ignores iOS address bar */
+    padding-top: clamp(6rem, 12vh, 10rem);
     line-height: var(--line-height-tight);
     z-index: 2;
     position: relative; /* needed so ::before is positioned relative to this */
@@ -607,8 +610,8 @@ button {
     text-transform: uppercase;
     display: inline-block;
     position: absolute;
-    right: 0;
-    bottom: var(--spacing-3xl); /* relative to hero section bottom */
+    right: 2rem;
+    bottom: 10%; /*scales with section height*/
     transform: none;
     z-index: 3;
     padding: 0.75rem 2.5rem 0.75rem 1.5rem;
@@ -943,9 +946,9 @@ button {
 .volunteer-badge {
     text-transform: uppercase;
     display: inline-block;
-    position: absolute;
-    right: -10.1vw;
-    top: -6vh;
+     position: absolute;
+    bottom: 10%;
+    left: 5%;
     z-index: 3;
     padding: 0.75rem 5.5rem 0.75rem 1.5rem;
     background-color: var(--color-footer);
@@ -1345,6 +1348,12 @@ button {
     height: 70vh;
     transform: translateY(-25%) translateX(-28%) scaleX(1.9) scaleY(1.2);
 }
+
+    .hero-badge {
+        right: 1.5rem;
+        bottom: 8%;
+        transform: scale(0.9);
+    }
  
     /* Cards */
     .cards-grid { grid-template-columns: 1fr; }
@@ -1460,17 +1469,13 @@ button {
     .hero-title    { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1rem; }
 
-    /* Badge drops into normal flow on small screens */
     .hero-badge {
-    position: static;
-    display: block;           /* was inline-block — this is why it left-aligns */
-    width: fit-content;
-    margin-top: var(--spacing-lg);
-    margin-left: 0;           /* flush left with the hero text — consistent */
-    clip-path: none;
-    border-radius: var(--radius-md);
-    padding: 0.65rem 1.25rem;
-    filter: none;
+        right: 1rem;
+        left: auto;
+        bottom: 6%;
+        clip-path: none;
+        border-radius: var(--radius-md);
+        padding: 0.5rem 1rem;
     }
  
     .hero-content::before {
@@ -1519,6 +1524,10 @@ button {
     clip-path: none;
     border-radius: var(--radius-md);
     padding: 0.75rem 1.5rem;
+    volunteer-badge {
+        left: 50%;
+        transform: translateX(-50%);
+    }
     /* remove: right: auto; top: auto — no effect on static */
 }
  
