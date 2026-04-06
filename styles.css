@@ -406,12 +406,12 @@ button {
 
 .navbar-brand {
     display: flex;
-    flex: 0 0 35px;
+    flex: 0 0 auto;
     align-items: center;
 }
 
 .logo {
-    position: fixed;
+    position: relative;  /* was fixed — caused layout collapse */
     height: 7rem;
     width: auto;
 }
@@ -546,14 +546,14 @@ button {
     margin-bottom: var(--spacing-xl);
     padding-left: 10%;
     position: relative;
-    margin-top: -3rem; /* was -6.5rem — less negative = content sits lower */
+    margin-top: 0
 }
  
 .hero-content {
     max-width: 600px;
     margin: 0;
     align-items: flex-start;
-    padding-top: 24vh;
+    padding-top: max(5rem, 15dvh); /* dvh ignores iOS address bar */
     line-height: var(--line-height-tight);
     z-index: 2;
     position: relative; /* needed so ::before is positioned relative to this */
@@ -608,8 +608,8 @@ button {
     display: inline-block;
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: var(--spacing-3xl); /* relative to hero section bottom */
+    transform: none;
     z-index: 3;
     padding: 0.75rem 2.5rem 0.75rem 1.5rem;
     background-color: var(--color-accent);
@@ -619,7 +619,7 @@ button {
         calc(100% - 14px) 100%,
         0 100%, 0 14px
     );
-    filter: drop-shadow(0 0 20px red);
+    filter: drop-shadow(0 0 20px rgb(27, 27, 27));
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.02rem;
@@ -903,7 +903,7 @@ button {
     --section-bg: var(--color-accent-dark);
     --skew-angle: 1.5deg;
     margin-top: -1.5rem;
-    margin-bottom: -4rem;
+    margin-bottom: 0;
     z-index: 2;
 }
  
@@ -1038,7 +1038,8 @@ button {
     text-align: left;
     min-height: 100vh;
     margin-top: 0;                              /* was -2rem — remove the overlap pull */
-    z-index: 1;
+    z-index: 3;
+    padding-top: calc(var(--section-padding) + 2rem) /*give the title breathing room from whatever skew overflow comes from the section above.*/
 }
     
 
@@ -1405,7 +1406,7 @@ button {
 /* 4. TABLET PORTRAIT — ≤ 768px */
 @media (max-width: 768px) {
     :root {
-        --font-size-hero: 2.5rem;
+        --font-size-hero: 2.75rem;
         --font-size-h1:   2rem;
         --font-size-h2:   1.75rem;
         --section-padding: 3rem;
@@ -1416,6 +1417,13 @@ button {
     .hamburger-button { display: flex; }
     .logo { height: 5rem; }
  
+    .navbar {
+    padding: 0.5rem 1.25rem;   /* more horizontal room for logo/hamburger */
+    }
+    .navbar .container {
+        max-height: none;   /* was 1.5rem — clips the logo on some phones */
+    }
+
     .navbar-nav.active {
         display: flex;
         flex-direction: column;
@@ -1445,7 +1453,7 @@ button {
     .hero-section .container { padding-left: 5%; }
  
     .hero-content {
-        padding-top: 20vh;
+        padding-top: max(4.5rem, 13dvh);
         max-width: 500px;
     }
  
@@ -1454,14 +1462,15 @@ button {
 
     /* Badge drops into normal flow on small screens */
     .hero-badge {
-        position: static;
-        display: inline-block;
-        margin-top: var(--spacing-lg);
-        max-width: 100%;
-        clip-path: none;
-        border-radius: var(--radius-md);
-        padding: 0.65rem 1.25rem;
-        filter: none;
+    position: static;
+    display: block;           /* was inline-block — this is why it left-aligns */
+    width: fit-content;
+    margin-top: var(--spacing-lg);
+    margin-left: 0;           /* flush left with the hero text — consistent */
+    clip-path: none;
+    border-radius: var(--radius-md);
+    padding: 0.65rem 1.25rem;
+    filter: none;
     }
  
     .hero-content::before {
@@ -1502,15 +1511,16 @@ button {
     .volunteer-card { min-height: 250px; }
  
     .volunteer-badge {
-        position: static;
-        margin: var(--spacing-md) auto;
-        right: auto;
-        top: auto;
-        filter: none;
-        clip-path: none;
-        border-radius: var(--radius-md);
-        padding: 0.75rem 1.5rem;
-    }
+    position: static;
+    display: block;          
+    width: fit-content;      
+    margin: var(--spacing-md) auto;
+    filter: none;
+    clip-path: none;
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.5rem;
+    /* remove: right: auto; top: auto — no effect on static */
+}
  
     .volunteer-description { max-width: 100%; }
     .volunteer-actions { flex-direction: column; }
@@ -1592,7 +1602,7 @@ button {
     /* Navbar */
     .navbar {
         width: calc(100% - 1rem);
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 1rem;
     }
  
     .logo { height: 4rem; }
@@ -1601,7 +1611,7 @@ button {
     .hero-section .container { padding-left: var(--container-padding); }
  
     .hero-content {
-        padding-top: 160px; /* fixed — avoids iOS address-bar jump */
+        padding-top: max(4.5rem, 12dvh); /* dvh is the right fix for iOS */
         max-width: 100%;
     }
  
@@ -1623,6 +1633,12 @@ button {
  
     /* Volunteer */
     .volunteer-actions { flex-direction: column; }
+
+    .volunteer-badge {
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+    max-width: 90vw;    /* belt-and-suspenders for very narrow phones */
+    }
  
     /* Stories */
     .story-card { padding: var(--spacing-lg); }
