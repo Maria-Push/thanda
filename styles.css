@@ -1619,7 +1619,7 @@ button {
     /* Navbar */
     .navbar {
         width: calc(100% - 1rem);
-        padding: 0.5rem 1rem;
+        padding: 0.2rem 1rem;
     }
  
     .logo { height: 4rem; }
