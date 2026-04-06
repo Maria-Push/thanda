@@ -1648,20 +1648,23 @@ button {
     .logo { height: 4rem; }
  
     /* Hero */
-.hero-section {
-    background-position: 65% center;
-    top: -80%;
-}
+    .hero-section {
+        background-position: 65% center;
+        align-items: flex-start; /* stop vertical centering */
+        min-height: unset;          /* stop forcing full viewport height */
+        height: auto;
+        padding-bottom: 4rem;       /* controlled breathing room below content */
+    }
 
     .hero-section .container { padding-left: var(--container-padding);
     }
  
     .hero-content {
-        padding-top: max(4.5rem, 12dvh); /* dvh is the right fix for iOS */
+        padding-top: 2rem;   /* just enough to clear the fixed navbar */
         max-width: 100%;
     }
  
-    .hero-title    { font-size: 1.75rem; }
+    .hero-title    { font-size: 2.5rem; }
     .hero-subtitle { font-size: 0.95rem; }
 
     .hero-badge {
@@ -1733,6 +1736,9 @@ button {
  
 /* 7. SMALL MOBILE — ≤ 375px */
 @media (max-width: 375px) {
+    .hero-content {
+        padding-top: 3.5rem;   /* just enough to clear the fixed navbar */
+    }
     .hero-title    { font-size: 1.5rem; }
     .section-title { font-size: 1.5rem; }
 
