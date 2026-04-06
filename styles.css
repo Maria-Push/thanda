@@ -541,6 +541,7 @@ button {
     cursor: default;
     padding-bottom: var(--section-padding);
     position: relative;
+    padding-top: 6rem;
 }
  
 .hero-section .container {
@@ -556,7 +557,7 @@ button {
     max-width: 600px;
     margin: 0;
     align-items: flex-start;
-    padding-top: clamp(6rem, 12vh, 10rem);
+    padding-top: 2rem;
     line-height: var(--line-height-tight);
     z-index: 2;
     position: relative; /* needed so ::before is positioned relative to this */
@@ -610,8 +611,8 @@ button {
     text-transform: uppercase;
     display: inline-block;
     position: absolute;
-    right: 2rem;
-    bottom: 10%; /*scales with section height*/
+    right: 0;
+    bottom: 8%;
     transform: none;
     z-index: 3;
     padding: 0.75rem 2.5rem 0.75rem 1.5rem;
@@ -1469,8 +1470,14 @@ button {
         max-width: 500px;
     }
  
-    .hero-title    { font-size: 2.5rem; }
-    .hero-subtitle { font-size: 1rem; }
+    .hero-title    { 
+        font-size: 2.5rem; 
+         margin-bottom: 1rem;
+    }
+    .hero-subtitle { 
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
 
     .hero-badge {
         right: 1rem;
@@ -1488,6 +1495,7 @@ button {
     .btn-hero {
         justify-content: center;
         align-items: center;
+        margin-bottom: 1rem;
     }
  
     /* Cards */
@@ -1619,7 +1627,7 @@ button {
     /* Navbar */
     .navbar {
         width: calc(100% - 1rem);
-        padding: 0.2rem 1rem;
+        padding: 0.5rem 1rem;
     }
  
     .logo { height: 4rem; }
