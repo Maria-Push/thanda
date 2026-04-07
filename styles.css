@@ -284,6 +284,11 @@ button {
     position: relative;
     z-index: 3;
 }
+
+.btn-hero {
+    display: flex;
+    justify-content: center;
+}
  
 .btn-primary {
     background-color: var(--color-primary-dark);
@@ -579,7 +584,7 @@ button {
     /* Position — same as before */
     left: -20.5vw;
     top: 30%;
-    transform: translateY(-25%) translateX(-33%) scaleX(2.1) scaleY(1.4);
+    transform: translateY(-38%) translateX(-33%) scaleX(2.1) scaleY(1.4);
     transform-origin: left center;
 }
 
@@ -1504,9 +1509,13 @@ button {
     .hero-section .container { padding-left: 5%; }
  
     .hero-content {
-        padding-top: max(0.5rem, 2dvh);
-        max-width: 500px;
-    }
+    padding-top: max(0.5rem, 2dvh);
+    max-width: 500px;
+
+    display: flex;              /* ADD */
+    flex-direction: column;     /* ADD */
+    align-items: flex-start;       
+}
 
     .hero-content::before {
     width: 45vw;
@@ -1525,24 +1534,33 @@ button {
     }
 
     .hero-badge {
-    position: static;          /* back into normal flow */
+    position: static;
     display: block;
-    width: 40%;               /* matches the full-width .btn at this breakpoint */
-    text-align: center;
-    clip-path: none;           /* no more angled corner on mobile */
-    border-radius: var(--radius-md);
-    padding: 0.6rem 0.8rem;
+
+    width: fit-content;
+    max-width: 100%;
+
     margin-top: var(--spacing-xs);
+
+    /* ❗ REMOVE auto centering */
+    margin-left: 0;
+
+    text-align: center;
+
+    clip-path: none;
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1rem;
+
     filter: none;
     font-size: calc(var(--font-size-small) - 0.1rem);
 }
 
 
     .btn-hero {
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
+    margin-bottom: 1rem;
+    align-self: center;   /* ensures it follows flex centering */
+    width: fit-content;
+}
  
     /* Cards */
     .cards-grid {
@@ -1630,6 +1648,7 @@ button {
         padding: 0.75rem 1.5rem;
         font-size: 0.95rem;
     }
+
 }
  
  
@@ -1641,7 +1660,6 @@ button {
     .hero-badge {
     position: static;
     display: block;
-    width: 100%;
     text-align: center;
     padding: 0.6rem 1rem;
     font-size: 0.8rem;
