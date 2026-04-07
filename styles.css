@@ -1431,6 +1431,26 @@ button {
     }
 }
  
+/* 4. TABLET PORTRAIT — ≤ 860px */
+@media (max-width: 860px) {
+    :root {
+        --font-size-hero: 2.70rem;
+        --font-size-h1:   2rem;
+        --font-size-h2:   1.70rem;
+        --section-padding: 3rem;
+    }
+
+.hero-badge {
+        transform: scale(0.9);
+        text-transform: uppercase;
+        position: absolute;
+        right: -5.5%;
+        bottom: -14%;
+        padding: 0.55rem 2.5rem 0.55rem 1.5rem;
+        font-size: var(--font-size-small);
+        letter-spacing: 0.01rem;
+    }
+}
  
 /* 4. TABLET PORTRAIT — ≤ 768px */
 @media (max-width: 768px) {
