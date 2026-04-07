@@ -1343,21 +1343,32 @@ button {
     }
  
     /* Hero */
+    .hero-section {
+        align-items: flex-start; /* stop vertical centering */
+        min-height: unset;          /* stop forcing full viewport height */
+        height: auto;
+        padding-bottom: 6rem;       /* controlled breathing room below content */
+    }
     .hero-section .container { padding-left: 8%; }
     .hero-title   { font-size: 3rem; }
     .hero-subtitle { font-size: 1.1rem; }
  
     .hero-content::before {
-    width: 48vw;
+    width: 44vw;
     left: -16vw;
     height: 70vh;
-    transform: translateY(-25%) translateX(-28%) scaleX(1.9) scaleY(1.2);
+    transform: translateY(-44%) translateX(-28%) scaleX(1.8) scaleY(1.4);
 }
 
     .hero-badge {
-        right: 1.5rem;
-        bottom: 8%;
         transform: scale(0.9);
+        text-transform: uppercase;
+        position: absolute;
+        right: -4.5%;
+        bottom: -12%;
+        padding: 0.55rem 2.5rem 0.55rem 1.5rem;
+        font-size: var(--font-size-small);
+        letter-spacing: 0.01rem;
     }
  
     /* Cards */
