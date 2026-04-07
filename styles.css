@@ -1337,6 +1337,11 @@ button {
         height: 10%;
     }
  
+
+    .navbar .container {
+        max-height: none; /* lifts the 1.5rem cap so flex centering works */
+    }
+
     .nav-link {
         font-size: 0.9rem;
         padding: 0.4rem 0.8rem;
@@ -1444,9 +1449,6 @@ button {
  
     .navbar {
     padding: 0.5rem 1.25rem;   /* more horizontal room for logo/hamburger */
-    }
-    .navbar .container {
-        max-height: none;   /* was 1.5rem — clips the logo on some phones */
     }
 
     .navbar-nav.active {
