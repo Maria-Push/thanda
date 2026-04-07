@@ -1333,13 +1333,12 @@ button {
 @media (max-width: 1024px) {
     /* Navbar */
     .navbar { 
-        width: calc(100% - 2rem); 
-        height: 10%;
+        width: calc(100% - 6rem);
     }
- 
 
     .navbar .container {
         max-height: none; /* lifts the 1.5rem cap so flex centering works */
+        height: 1.5rem;
     }
 
     .nav-link {
