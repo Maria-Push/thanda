@@ -1514,7 +1514,7 @@ button {
 
     display: flex;              /* ADD */
     flex-direction: column;     /* ADD */
-    align-items: flex-start;       
+    align-items: flex-start;        /* ADD — THIS is the key */
 }
 
     .hero-content::before {
@@ -1587,11 +1587,21 @@ button {
     #pawTracks { display: none; }
  
     /* Volunteer */
-    .volunteer-grid { grid-template-columns: 1fr; }
- 
-    .volunteer-card:nth-child(3) {
-        grid-column: span 1;
-    }
+    .volunteer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.volunteer-card {
+    width: 100%;
+}
+
+.volunteer-card:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: none;
+}
  
     .volunteer-card { min-height: 250px; }
  
