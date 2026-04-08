@@ -1476,9 +1476,13 @@ button {
         grid-template-areas:
             'contact explore'
             'connect connect';
-        gap: var(--spacing-xl);
+        gap: var(--spacing-2xl);
     }
  
+    /* ADD — reset the base margin-left that was pushing explore right */
+.footer-content .explore {
+    margin-left: 0;
+} 
     .footer-content .connect {
         width: 100%;
         margin: 0 auto;
@@ -1685,18 +1689,7 @@ button {
     }
  
     /* Footer */
-    .footer-content { grid-template-columns: 1fr; }
- 
-    .footer-column:nth-child(3) {
-        grid-column: span 1;
-        width: 100%;
-        max-width: none;
-        margin: 0;
-    }
- 
-    .footer-column { min-height: 250px; }
- 
-    .footer-content .explore { margin-left: 0; }
+    
     .footer-bottom {
         padding-top: calc(var(--skyline-height-tablet) + 2rem);
         padding-bottom: 2rem;
@@ -1809,6 +1802,27 @@ button {
     font-size: var(--font-size-medium);
     padding: 1rem 1.2rem;
     width: 95%;
+    }
+}
+
+/* FOOTER — single column below 540px
+   Two equal columns with left-aligned text become too narrow
+   to read comfortably below this width. Mirrors the same
+   collapse strategy used in the volunteer section. */
+@media (max-width: 540px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'contact'
+            'explore'
+            'connect';
+        gap: var(--spacing-lg);
+    }
+
+    .footer-content .explore { margin-left: 0; }
+    .footer-content .connect {
+        max-width: 100%;
+        margin: 0;
     }
 }
  
