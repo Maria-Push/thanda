@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 savedEmail.toLowerCase() === email.toLowerCase();
 
             if (exactMatch) {
-                showErrorToast("You're already part of the coalition 🐾");
+                showAlreadySignedUp(name);
                 return;
             }
  
@@ -322,6 +322,32 @@ function showSignupSuccess(name) {
         <small>We'll keep you in the loop (the good kind).</small>
     `;
  
+    document.body.appendChild(popup);
+    setTimeout(function () { popup.classList.add('show'); }, 10);
+    setTimeout(function () {
+        popup.classList.remove('show');
+        setTimeout(function () { popup.remove(); }, 300);
+    }, 7000);
+}
+
+function showAlreadySignedUp(name) {
+    const messages = [
+        `🐾 Hey ${name}, you're already in the coalition! 🐾`,
+        `🦁 We know you, ${name} — you signed up already. 🦁`,
+        `🦛 ${name}, your spot is saved. No need to sign up twice! 🦛`,
+        `🐃 Once is enough, ${name} — we've got you. 🐃`
+    ];
+
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+    const popup = document.createElement('div');
+    popup.className = 'signup-toast signup-error';
+    popup.setAttribute('aria-live', 'polite');
+    popup.innerHTML = `
+        ${randomMessage}<br>
+        <small>Check your inbox — we'll be in touch.</small>
+    `;
+
     document.body.appendChild(popup);
     setTimeout(function () { popup.classList.add('show'); }, 10);
     setTimeout(function () {
