@@ -1831,7 +1831,8 @@ button {
 @media (max-width: 480px) {
     :root {
         --font-size-hero: 2rem;
-        --section-padding: 2rem;
+        --section-padding-small: 2rem;
+        --container-padding: 1rem;
     }
  
     /* Navbar */
@@ -1871,7 +1872,7 @@ button {
         min-height: unset;          /* stop forcing full viewport height */
         height: auto;
         padding-bottom: 4rem;       /* controlled breathing room below content */
-        padding-top: var(--spacing-2xl);
+        padding-top: 4rem;
     }
 
     .hero-section .container { padding-left: var(--container-padding);
@@ -1976,6 +1977,10 @@ button {
         z-index: 100;
     }
  
+    .hero-section {
+        padding-top: 3rem;
+    }
+    
     .hero-content {
         padding-top: 3.5rem;   /* just enough to clear the fixed navbar */
     }
