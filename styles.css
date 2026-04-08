@@ -286,8 +286,9 @@ button {
 }
 
 .btn-hero {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
+    align-self: flex-start;  /* anchors it left within the flex .hero-content column */
 }
  
 .btn-primary {
