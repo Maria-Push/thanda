@@ -60,7 +60,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
  
     <!-- ======= STYLES ======= -->
-    <link rel="stylesheet" href="styles.css?v=17">
+    <link rel="stylesheet" href="styles.css?v=2026-04-07j">
 </head>
 <body>
 
@@ -319,12 +319,35 @@
                 <div class="footer-column footer-column-wide connect">
                     <h2 class="footer-heading">Stay in the loop</h2>
                     <p class="footer-text">We send updates about the animals, the work, and ways to get involved. No spam — ever.</p>
-                    <form class="subscribe-form" action="javascript:void(0)" aria-label="Newsletter subscription">
+
+                    <form id="subscribeForm" class="subscribe-form" action="#" method="POST" aria-label="Newsletter subscription">
+
                         <label for="firstName" class="sr-only">First name</label>
-                        <input type="text" id="firstName" name="firstName" placeholder="e. g. Masha" class="form-input" autocomplete="given-name">
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName" 
+                            placeholder="e. g. Masha" 
+                            class="form-input" 
+                            autocomplete="given-name"
+                            required
+                        >
+
                         <label for="emailAddress" class="sr-only">Email address</label>
-                        <input type="email" id="emailAddress" name="email" placeholder="e. g. masha@email.com" class="form-input" autocomplete="email">
-                        <button type="submit" class="btn btn-subscribe">Subscribe</button>
+
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="e. g. masha@email.com" 
+                            class="form-input" 
+                            autocomplete="email"
+                            required
+                        >
+
+                        <button type="submit" class="btn btn-subscribe">
+                            Join the herd
+                        </button>
                     </form>
                     <p class="form-note">*Your details stay with us. That's a promise.</p>
                 </div>
@@ -355,7 +378,7 @@
             
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    &copy; 2026.#$%#%$ Thanda Wildlife Sanctuary. All Rights Reserved.
+                    &copy; 2026.04j Thanda Wildlife Sanctuary. All Rights Reserved.
                     <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a>
                 </p>
             </div>

@@ -196,4 +196,149 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(impactSection);
 
-});
+
+/* ========================================================
+       5. FOOTER SUBSCRIBE FORM — FULL UX SIMULATION
+ 
+       BUGS FIXED:
+       ① The email input in HTML had id="emailAddress" but JS
+         was calling getElementById('email') → returned null →
+         crashed with TypeError on .value → entire submit
+         handler died silently. Fixed: use id="email" in HTML
+         (or swap the querySelector here to match whichever
+         id you keep in HTML — both ways work, just be consistent).
+ 
+       ② Pre-signup localStorage check on page load correctly
+         disables the button before the submit listener runs,
+         preventing double submissions even on refresh.
+    ======================================================== */
+ 
+    const subscribeForm = document.getElementById('subscribeForm');
+ 
+    // ── PRE-SIGNUP STATE (runs on every page load) ──────────
+    // If this visitor already signed up, lock the button immediately
+    // so they never see an active form again.
+    if (subscribeForm) {
+        const alreadySignedUp = localStorage.getItem('signedUp');
+        const savedName       = localStorage.getItem('userName');
+        const submitBtn       = subscribeForm.querySelector('button[type="submit"]');
+ 
+        if (alreadySignedUp && submitBtn) {
+            submitBtn.textContent = "You're already in 🐾";
+            submitBtn.disabled    = true;
+        }
+ 
+        // Friendly console greeting for returning visitors
+        if (savedName) {
+            console.log(`Welcome back, ${savedName} 🐾`);
+        }
+ 
+        // ── FORM SUBMISSION ──────────────────────────────────
+        subscribeForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+ 
+            // FIX ①: querySelector matches the actual id in your HTML.
+            // If you keep id="emailAddress" in HTML, change 'email' → 'emailAddress' below.
+            // If you change HTML to id="email", leave this as-is.
+            const nameInput  = document.getElementById('firstName');
+            const emailInput = document.getElementById('email'); // ← must match your HTML id
+            const button     = subscribeForm.querySelector('button[type="submit"]');
+ 
+            const name  = nameInput  ? nameInput.value.trim()  : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+ 
+            // ── VALIDATION ───────────────────────────────────
+ 
+            if (!name && !email) {
+                showErrorToast("🐾 We need your name and email to join the herd!");
+                return;
+            }
+            if (!name) {
+                showErrorToast("Oops… we need your first name 🐒");
+                return;
+            }
+            if (!email) {
+                showErrorToast("Hmm… we need your email to send updates 🌿");
+                return;
+            }
+ 
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                showErrorToast("Hmm… that doesn't look like an email 🐾");
+                return;
+            }
+ 
+            // ── ALREADY SIGNED UP CHECK ──────────────────────
+            if (localStorage.getItem('signedUp')) {
+                showErrorToast("You're already part of the herd 🐾");
+                return;
+            }
+ 
+            // ── PROCESS SUBMISSION ───────────────────────────
+            button.textContent = "Joining...";
+            button.disabled    = true;
+ 
+            setTimeout(function () {
+                showSignupSuccess(name);
+ 
+                // Simulate backend: persist to localStorage
+                localStorage.setItem('signedUp', 'true');
+                localStorage.setItem('userName', name);
+ 
+                subscribeForm.reset();
+ 
+                button.textContent = "You're already in 🐾";
+                button.disabled    = true;
+            }, 700);
+        });
+    }
+ 
+}); // end DOMContentLoaded
+ 
+ 
+/* ============================================================
+   SUCCESS TOAST  —  anthropomorphic welcome messages
+============================================================ */
+function showSignupSuccess(name) {
+    const messages = [
+        `🐾 Hey ${name}, you're in.`,
+        `🦒 Welcome to the herd, ${name}!`,
+        `🦁 The sanctuary just got stronger with you, ${name}.`,
+        `🌿 Glad you're here, ${name}. It means a lot.`
+    ];
+ 
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+ 
+    const popup = document.createElement('div');
+    popup.className = 'signup-toast';
+    popup.setAttribute('aria-live', 'polite');
+    popup.innerHTML = `
+        ${randomMessage}<br>
+        <small>We'll keep you in the loop (the good kind).</small>
+    `;
+ 
+    document.body.appendChild(popup);
+    setTimeout(function () { popup.classList.add('show'); }, 10);
+    setTimeout(function () {
+        popup.classList.remove('show');
+        setTimeout(function () { popup.remove(); }, 300);
+    }, 4000);
+}
+ 
+ 
+/* ============================================================
+   ERROR TOAST  —  anthropomorphic microcopy
+============================================================ */
+function showErrorToast(message) {
+    const popup = document.createElement('div');
+    popup.className = 'signup-toast signup-error';
+    popup.setAttribute('aria-live', 'polite');
+    popup.innerHTML = message;
+ 
+    document.body.appendChild(popup);
+    setTimeout(function () { popup.classList.add('show'); }, 10);
+    setTimeout(function () {
+        popup.classList.remove('show');
+        setTimeout(function () { popup.remove(); }, 300);
+    }, 4000);
+}
