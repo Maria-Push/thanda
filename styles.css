@@ -1744,7 +1744,7 @@ button {
     .volunteer-intro::after { width: 10rem; }
 
     .signup-toast {
-    font-size: var(--font-size-h4);
+    font-size: var(--font-size-small);
     padding: 1rem 1.2rem;
     }
 }
