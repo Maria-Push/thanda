@@ -306,10 +306,10 @@ document.addEventListener('DOMContentLoaded', function () {
 ============================================================ */
 function showSignupSuccess(name) {
     const messages = [
-        `🐾 Hey ${name}, you're in.`,
+        `🐾 Hey ${name}, you're in. 🐾`,
         `🐆 Welcome to the herd, ${name}! 🐆`,
-        `🦒 The sanctuary just got stronger with you, ${name}.`,
-        `🌿 Glad you're here, ${name}. It means a lot.`
+        `🦒 The sanctuary just got stronger with you, ${name}. 🦒`,
+        `🦓 Glad you're here, ${name}. It means a lot. 🦓`
     ];
  
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
