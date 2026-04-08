@@ -1715,6 +1715,27 @@ button {
 /* 5. LARGE MOBILE — ≤ 640px */
 @media (max-width: 640px) {
 
+    .navbar {
+        padding: 0.4rem 1rem;        /* tighter vertical, controlled horizontal */
+    }
+
+    .navbar .container {
+        width: 100%;                 /* override the calc(100% - 3rem) from .container */
+        max-width: 100%;             /* override 90vw */
+        padding: 0 0.15rem;          /* near-zero inset — the navbar's own padding handles the edge gap */
+    }
+
+     /* Optical alignment — shifts the rendered image content
+       leftward without changing the element's dimensions.
+       object-position moves the artwork inside the box;
+       the box itself stays the same size so proportions
+       are completely unaffected. Tune the first value
+       (currently -0.4rem) to match your logo's bleed. */
+    .navbar-brand img {
+        object-fit: contain;
+        object-position: -0.80rem center;
+    }
+
     .navbar-nav.active {
         width: 38%;
         border-radius: var(--radius-lg);
@@ -1779,6 +1800,19 @@ button {
     .navbar {
         width: calc(100% - 1rem);
         padding: 0.5rem 1rem;
+    }
+
+     /* Logo is 4rem here vs 5rem at 640px — bleed shrinks
+       proportionally so object-position needs less offset.
+       Calculated: -0.85rem × (4 ÷ 5) = -0.68rem → -0.7rem */
+    .navbar-brand img {
+        object-position: -0.68rem center;
+    }
+
+    .navbar .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 0.10rem;
     }
 
     .navbar-nav.active {
@@ -1884,6 +1918,16 @@ button {
  
 /* 7. SMALL MOBILE — ≤ 375px */
 @media (max-width: 375px) {
+
+    .navbar-brand img {
+        object-position: -0.48rem center;
+    }
+
+    .navbar .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 0.05rem;
+    }
 
     .navbar-nav.active {
         width: 42%;
