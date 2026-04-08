@@ -1237,19 +1237,19 @@ button {
     transform: translateX(-50%) translateY(20px);
     background: var(--color-accent);
     color: white;
-    padding: 1rem 1.5rem;
+    padding: 2rem 2.5rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-medium);
     opacity: 0;
     transition: 0.3s ease;
     z-index: 999;
     text-align: center;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-large);
 }
 
 /* Show animation */
 .signup-toast.show {
-    opacity: 1;
+    opacity: 0.95;
     transform: translateX(-50%) translateY(0);
 }
 

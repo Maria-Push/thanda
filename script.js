@@ -222,11 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const alreadySignedUp = localStorage.getItem('signedUp');
         const savedName       = localStorage.getItem('userName');
         const submitBtn       = subscribeForm.querySelector('button[type="submit"]');
- 
-        if (alreadySignedUp && submitBtn) {
-            submitBtn.textContent = "You're already in 🐾";
-            submitBtn.disabled    = true;
-        }
+
  
         // Friendly console greeting for returning visitors
         if (savedName) {
@@ -250,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // ── VALIDATION ───────────────────────────────────
  
             if (!name && !email) {
-                showErrorToast("🐾 We need your name and email to join the herd!");
+                showErrorToast("🐾 We need your name and email to join the coalition!");
                 return;
             }
             if (!name) {
@@ -268,9 +264,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
  
-            // ── ALREADY SIGNED UP CHECK ──────────────────────
-            if (localStorage.getItem('signedUp')) {
-                showErrorToast("You're already part of the herd 🐾");
+            // ── ALREADY SIGNED UP CHECK - exact match duplicate ──────────────────────
+            const savedName  = localStorage.getItem('userName');
+            const savedEmail = localStorage.getItem('userEmail');   // ← you'll store this now too
+
+            const exactMatch =
+                savedName  && savedEmail &&
+                savedName.toLowerCase()  === name.toLowerCase() &&
+                savedEmail.toLowerCase() === email.toLowerCase();
+
+            if (exactMatch) {
+                showErrorToast("You're already part of the coalition 🐾");
                 return;
             }
  
@@ -284,11 +288,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Simulate backend: persist to localStorage
                 localStorage.setItem('signedUp', 'true');
                 localStorage.setItem('userName', name);
+                localStorage.setItem('userEmail', email);
  
                 subscribeForm.reset();
  
-                button.textContent = "You're already in 🐾";
-                button.disabled    = true;
+                button.textContent = "Join the coalition 🐆";   // reset to original label
+                button.disabled    = false;             // re-enable the button
             }, 700);
         });
     }
@@ -302,8 +307,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function showSignupSuccess(name) {
     const messages = [
         `🐾 Hey ${name}, you're in.`,
-        `🦒 Welcome to the herd, ${name}!`,
-        `🦁 The sanctuary just got stronger with you, ${name}.`,
+        `🐆 Welcome to the herd, ${name}! 🐆`,
+        `🦒 The sanctuary just got stronger with you, ${name}.`,
         `🌿 Glad you're here, ${name}. It means a lot.`
     ];
  
@@ -322,7 +327,7 @@ function showSignupSuccess(name) {
     setTimeout(function () {
         popup.classList.remove('show');
         setTimeout(function () { popup.remove(); }, 300);
-    }, 4000);
+    }, 7000);
 }
  
  
@@ -340,5 +345,5 @@ function showErrorToast(message) {
     setTimeout(function () {
         popup.classList.remove('show');
         setTimeout(function () { popup.remove(); }, 300);
-    }, 4000);
+    }, 7000);
 }
