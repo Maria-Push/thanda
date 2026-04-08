@@ -398,7 +398,7 @@ button {
     z-index: 10;
     transition: transform 0.4s ease, opacity 0.4s ease;
     box-sizing: border-box;
-    padding: 0.75rem 0.1rem;
+    padding: 0.75rem 1.25rem;
 }
 
 .navbar .container {
@@ -554,7 +554,7 @@ button {
     max-width: none;
     margin: 0;
     margin-bottom: 0;
-    padding-left: 5%;
+    padding-left: 10%;
     position: relative;
     margin-top: 0
 }
@@ -1216,6 +1216,7 @@ button {
     opacity: 0.6;
     margin-top: var(--spacing-xs);
 }
+ 
 
 /* SIGNUP FORMS  */
 .sr-only {
@@ -1244,6 +1245,7 @@ button {
     transition: 0.3s ease;
     z-index: 999;
     text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     font-size: var(--font-size-h4);
 }
 
@@ -1255,10 +1257,10 @@ button {
 
 /* Error variant */
 .signup-toast.signup-error {
-    background: #e06f6f; /* red tone */
-    color: white;
+    background: rgb(255, 61, 61);
+    color: var(--color-cream);
 }
- 
+
 /* Contact block uses <address> — keep inline spacing */
 .contact-info {
     font-style: normal; /* override browser italic for <address> */
@@ -1376,6 +1378,19 @@ button {
 }
  
  
+@media (max-width: 1100px) {
+    .volunteer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .volunteer-card:nth-child(3) {
+        grid-column: span 2;
+        max-width: none;
+        margin: 0;
+    }
+}
+
 /* 3. TABLET LANDSCAPE — ≤ 1024px */
 @media (max-width: 1024px) {
     /* Navbar */
@@ -1447,17 +1462,8 @@ button {
         margin: 0 auto;
     }
  
-    /* Volunteer */
-    .volunteer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-md);
-    }
- 
-    .volunteer-card:nth-child(3) {
-        grid-column: span 2;
-        max-width: 500px;
-        margin: 0 auto;
-    }
+    /* Volunteer — handled by ≤1100px block above */
+
  
     /* Stories */
     .stories-grid { gap: var(--spacing-md); }
@@ -1548,15 +1554,22 @@ button {
         background-position: 40% center;
     }
 
-    .hero-section .container { padding-left: 5%; }
+    .hero-section .container {
+        padding-left: 5%;
+        padding-right: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* center both .hero-content and .hero-badge on the same axis */
+    }
  
     .hero-content {
     padding-top: max(0.5rem, 2dvh);
-    max-width: 500px;
+    width: fit-content;   /* shrinks to widest title line — button inherits this width */
+    max-width: 90vw;
 
-    display: flex;              /* ADD */
-    flex-direction: column;     /* ADD */
-    align-items: flex-start;        /* ADD — THIS is the key */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
     .hero-content::before {
@@ -1580,18 +1593,17 @@ button {
     display: block;
 
     width: fit-content;
-    max-width: 100%;
+    padding: 0.6rem 1.25rem;
 
+    /* center badge under the button without stretching it */
     margin-top: var(--spacing-xs);
-
-    /* ❗ REMOVE auto centering */
-    margin-left: 0;
+    margin-left: auto;
+    margin-right: auto;
 
     text-align: center;
 
     clip-path: none;
     border-radius: var(--radius-md);
-    padding: 0.6rem 1rem;
 
     filter: none;
     font-size: calc(var(--font-size-small) - 0.1rem);
@@ -1629,20 +1641,13 @@ button {
     #pawTracks { display: none; }
  
     /* Volunteer */
-    .volunteer-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
-}
-
-.volunteer-card {
-    width: 100%;
-}
-
-.volunteer-card:nth-child(3) {
-    grid-column: 1 / -1;
-    width: 100%;              
-}
+    .volunteer-grid { grid-template-columns: 1fr; }
+ 
+    .volunteer-card:nth-child(3) {
+        grid-column: span 1;
+        max-width: none;
+        margin: 0;
+    }
  
     .volunteer-card { min-height: 250px; }
  
@@ -1711,10 +1716,13 @@ button {
     .hero-badge {
     position: static;
     display: block;
+    width: fit-content;
+    padding: 0.6rem 1.25rem;
     text-align: center;
-    padding: 0.6rem 1rem;
     font-size: 0.8rem;
     margin-top: var(--spacing-xs);
+    margin-left: auto;
+    margin-right: auto;
 }
 
     .section-title  { font-size: 1.75rem; }
@@ -1734,6 +1742,11 @@ button {
  
     .volunteer-card::before { background: rgba(0, 0, 0, 0.5); }
     .volunteer-intro::after { width: 10rem; }
+
+    .signup-toast {
+    font-size: var(--font-size-h4);
+    padding: 1.5rem 2rem;
+    }
 }
  
  
@@ -1886,4 +1899,3 @@ button {
     /* Keep smooth scroll but respect the preference */
     html { scroll-behavior: auto; }
 }
-
