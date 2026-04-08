@@ -1608,6 +1608,7 @@ button {
 
     filter: none;
     font-size: calc(var(--font-size-small) - 0.1rem);
+    box-shadow: 0 1px 2px rgba(23, 10, 0, 0.4);
 }
 
 
@@ -1746,6 +1747,30 @@ button {
         z-index: 100;
     }
 
+    /* Hide the paint pseudo-element — at mobile viewport widths
+       the vw/vh positioning causes it to render as a visible
+       hard-edged panel rather than a subtle backdrop.
+       Text shadows carry the readability work instead. */
+    .hero-content::before {
+        display: none;
+    }
+
+    /* Stronger text shadows to maintain readability directly
+       against the hero photo without any backdrop element */
+    .hero-title {
+        text-shadow:
+            0 1px 3px rgba(255, 255, 255, 0.9),
+            0 2px 12px rgba(255, 255, 255, 0.5),
+            0 0 30px rgba(246, 241, 232, 0.5);
+    }
+
+    .hero-subtitle {
+        text-shadow:
+            0 1px 3px rgba(255, 255, 255, 0.65),
+            0 2px 10px rgba(255, 255, 255, 0.65),
+            0 0 24px rgba(246, 241, 232, 0.45);
+    }
+    
 
     .hero-title { font-size: 2rem; }
     .hero-title br, .hero-subtitle br { display: none; }
