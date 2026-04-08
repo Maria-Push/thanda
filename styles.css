@@ -1479,7 +1479,7 @@ button {
     }
  
     .footer-content .connect {
-        max-width: 600px;
+        width: 100%;
         margin: 0 auto;
     }
 }
@@ -1641,7 +1641,7 @@ button {
  
     #pawTracks { display: none; }
  
-    /* Volunteer */
+ /* Volunteer */
     .volunteer-grid { grid-template-columns: 1fr; }
  
     .volunteer-card:nth-child(3) {
@@ -1683,21 +1683,24 @@ button {
     }
  
     /* Footer */
-    .footer-content {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            'contact'
-            'explore'
-            'connect';
+    .footer-content { grid-template-columns: 1fr; }
+ 
+    .footer-column:nth-child(3) {
+        grid-column: span 1;
+        width: 100%;
+        max-width: none;
+        margin: 0;
     }
  
+    .footer-column { min-height: 250px; }
+ 
     .footer-content .explore { margin-left: 0; }
-    .footer-content .socials { width: 100%; }
     .footer-bottom {
         padding-top: calc(var(--skyline-height-tablet) + 2rem);
         padding-bottom: 2rem;
     }
     .footer-bottom::before { height: var(--skyline-height-tablet); }
+
  
     /* Buttons */
     .btn {
@@ -1721,6 +1724,7 @@ button {
         line-height: 0.5rem;
         z-index: 100;
     }
+
 
     .hero-title { font-size: 2rem; }
     .hero-title br, .hero-subtitle br { display: none; }
@@ -1754,6 +1758,7 @@ button {
  
     .volunteer-card::before { background: rgba(0, 0, 0, 0.5); }
     .volunteer-intro::after { width: 10rem; }
+
 
     .signup-toast {
     font-size: var(--font-size-medium);
@@ -1794,6 +1799,7 @@ button {
         min-height: unset;          /* stop forcing full viewport height */
         height: auto;
         padding-bottom: 4rem;       /* controlled breathing room below content */
+        padding-top: var(--spacing-2xl);
     }
 
     .hero-section .container { padding-left: var(--container-padding);
@@ -1811,6 +1817,10 @@ button {
     padding: 0.75rem 1rem;   /* a touch more breathing room on small phones */
 }
 
+    .why-matters {
+        padding-bottom: var(--section-padding-small);
+        padding-top: var(--spacing-xsm);
+    }
     /* Cards */
     .conservation-card { padding: var(--spacing-lg); }
     .card-icon { font-size: 2.5rem; }
