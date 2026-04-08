@@ -1528,9 +1528,10 @@ button {
         flex-direction: column;
         position: absolute;
         top: 100%;
-        left: 0;
+        /* left: 0; */
         right: 0;
-        background-color: rgba(246, 241, 232, 0.98);
+        width: 30%;
+        background-color: color-mix(in srgb, var(--color-cream) 92%, transparent);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border-radius: var(--radius-lg);
@@ -1710,6 +1711,17 @@ button {
  
 /* 5. LARGE MOBILE — ≤ 640px */
 @media (max-width: 640px) {
+
+    .navbar-nav.active {
+        width: 38%;
+        border-radius: var(--radius-lg);
+        margin-top: var(--spacing-xs);
+        padding: var(--spacing-sm);
+        box-shadow: var(--shadow-medium);
+        line-height: 0.5rem;
+        z-index: 100;
+    }
+
     .hero-title { font-size: 2rem; }
     .hero-title br, .hero-subtitle br { display: none; }
 
@@ -1762,6 +1774,15 @@ button {
     .navbar {
         width: calc(100% - 1rem);
         padding: 0.5rem 1rem;
+    }
+
+    .navbar-nav.active {
+        width: 40%;
+        border-radius: var(--radius-lg);
+        margin-top: var(--spacing-xs);
+        padding: var(--spacing-sm);
+        box-shadow: var(--shadow-medium);
+        z-index: 100;
     }
  
     .logo { height: 4rem; }
@@ -1853,6 +1874,16 @@ button {
  
 /* 7. SMALL MOBILE — ≤ 375px */
 @media (max-width: 375px) {
+
+    .navbar-nav.active {
+        width: 42%;
+        border-radius: var(--radius-lg);
+        margin-top: var(--spacing-xs);
+        padding: var(--spacing-sm);
+        box-shadow: var(--shadow-medium);
+        z-index: 100;
+    }
+ 
     .hero-content {
         padding-top: 3.5rem;   /* just enough to clear the fixed navbar */
     }
